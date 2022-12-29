@@ -1,0 +1,44 @@
+---
+title: "Environmental warming increases the importance of high-turnover energy channels in stream food webs"
+date: "`r format(Sys.Date(), '%Y-%m-%d')`"
+output: github_document
+---
+
+```{r init, echo=FALSE, warning=FALSE, message=FALSE}
+source("./packages.R")
+```
+
+This document was created from `README.Rmd` do not edit it directly. 
+
+This repository contains the code and document files for Junker, J. R., W. F. Cross, J. M. Hood, J. P. Benstead, A. D. Huryn, D. Nelson, J. S. Ólafsson, and G. M. Gíslason, "*Environmental warming increases the importance of high-turnover energy channels in stream food webs*", submitted for publication as an article in **Ecology**. 
+
+The full workflow to recreate the analyses and manuscript are contained here and employ the `drake`[https://docs.ropensci.org/drake/]\* package to recreate the workflow. The workflow is outlined in the `plan.R` script and the subsequent scripts within the `R/` folder. The most updated version of all of the model outputs and objects are cached in a hidden `.drake/` folder. This allows these objects to be called without the need to completely recreate them. The workflow and status of each drake "target" can be viewed with `drake::vis_drake_graph()`. The entire workflow can be rerun from scratch by running `drake::clean()` followed by `drake::make()`. Some of the objects, particularly the Bayesian models and random simulations, can take some time to rerun and therefore it is recommended to load the object rather than rerun the analysis from scratch unless necessary.
+
+## Reproducibility
+
+The system configuration of the last rerun was:
+
+<details><summary>Reproducibility receipt</summary>
+
+```{r}
+## datetime
+Sys.time()
+
+## repository
+capture.output(if(requireNamespace('git2r', quietly = TRUE)) {
+  git2r::repository()
+} else {
+  c(
+    system2("git", args = c("log", "--name-status", "-1"), stdout = TRUE),
+    system2("git", args = c("remote", "-v"), stdout = TRUE)
+  )
+})[-1]# [-1] to remove local file structure
+
+## session info
+sessionInfo()
+```
+
+</details>
+
+\* The `drake` package has been superseded by the `targets` package. This repository may be transferred to that workflow and/or accompanied with a Docker container to ensure backward compatability.
+

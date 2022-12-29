@@ -1,0 +1,91 @@
+---
+title: "Environmental warming increases the importance of high-turnover energy channels in stream food webs"
+author:
+  - name: James R. Junker
+  - name: Wyatt F. Cross
+  - name: James M. Hood
+  - name: Jonathan P. Benstead
+  - name: Alexander D. Huryn
+  - name: Daniel Nelson
+  - name: Jón S. Ólafsson
+  - name: Gísli M. Gíslason
+output:
+   word_document:
+      reference_docx: working_docx_template.docx
+      toc: no
+      pandoc_args:
+      - '--lua-filter=scholarly-metadata.lua'
+      - '--lua-filter=author-info-blocks.lua'
+      - '--filter=pandoc-crossref.exe'
+   pdf_document:
+     keep_tex: true
+   html_document: default
+   pandoc_args:
+      - '--lua-filter=scholarly-metadata.lua'
+      - '--lua-filter=author-info-blocks.lua'
+      - '--filter=pandoc-crossref.exe'
+header-includes:
+- \usepackage{lineno}
+- \usepackage{amsmath}
+- \numberwithin{equation}
+- \usepackage{indentfirst}
+- \linenumbers
+indent: true
+linestretch: 1
+bibliography: refs.bib
+link-citations: no
+link-color: grey
+csl: ecology.csl
+---
+
+```{r import general objects, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+source("./packages.R")
+
+```
+
+## Supporting Information: Appendix S2
+
+### Appendix S2: Table S1
+
+```{r GINI table, echo = FALSE, warning=FALSE, message=FALSE}
+tab1_caption = "Appendix S2:Table S1. Evenness of organic matter fluxes among consumers within a stream community measured by the Gini index, both raw (\\'non-normalized\\') and \\'normalized\\' for consumer richness"
+
+drake::loadd(gini_analysis)
+gini_analysis[["stream_gini_summary"]] %>% 
+   dplyr::mutate(across(where(is.numeric),.fns = ~signif(.,2))) %>% 
+   dplyr::mutate("Non-normalized Gini" = paste0(`Non-normalized Gini_mean`," ( ",`Non-normalized Gini_quant2.5`," - ", `Non-normalized Gini_quant97.5`," )"),
+                 "Normalized Gini" = paste0(`Normalized Gini_mean`," ( ", `Normalized Gini_quant2.5`," - ", `Normalized Gini_quant97.5`," )")) %>% select(site, `Non-normalized Gini`,`Normalized Gini`) %>%
+   dplyr::mutate(site = factor(site, levels = names(stream_order_list))) %>%
+   knitr::kable(align = "lrr", caption = tab1_caption)
+
+```
+
+\newpage
+
+### Appendix S2: Figure S1
+
+```{r raw lorenz, echo=FALSE, message=FALSE, warning = FALSE, dpi = 400, fig.cap="Appendix S2:Figure S1. Lorenz plot of relative community flux by species in ascending order of annual population organic matter flux (g AFDM m^-2^ y^-1^)"}
+drake::loadd(lorenz_skew_fig)
+lorenz_skew_fig[["lorenz_flux_plot"]]
+
+```
+
+\newpage
+
+### Appendix S2: Figure S2
+
+```{r biomass lorenz, echo=FALSE, message=FALSE, warning=FALSE, dpi = 400, fig.cap="Appendix S2:Figure S2. Cumulative plot of relative community flux by species in relation to mean annual population biomass (mg m^-2^)."}
+lorenz_skew_fig[["bio_lorenz_flux_plot"]]
+
+```
+
+\newpage
+
+### Appendix S2: Figure S3
+
+```{r skew distribution, echo = FALSE, warning=FALSE, message=FALSE, fig.cap="Appendix S2:Figure S3. Probability distribution of empirical Sk~flux~ measurements in relation to (a) mean body size and (b) annual P:B compared to random species ordering. The red lines represent the 2.5% and 97.5% percentiles of the Sk~flux~ values from random ordering distributions in each stream community."}
+drake::loadd(random_skew_fig)
+grid.arrange(random_skew_fig[["M_perc_plot"]], random_skew_fig[["pb_perc_plot"]], ncol = 1, left = text_grob(""))
+
+```
