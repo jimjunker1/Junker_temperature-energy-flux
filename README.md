@@ -39,7 +39,7 @@ Reproducibility receipt
 Sys.time()
 ```
 
-    ## [1] "2022-12-29 12:11:01 CST"
+    ## [1] "2022-12-29 14:09:44 CST"
 
 ``` r
 ## repository
@@ -50,11 +50,11 @@ capture.output(if(requireNamespace('git2r', quietly = TRUE)) {
     system2("git", args = c("log", "--name-status", "-1"), stdout = TRUE),
     system2("git", args = c("remote", "-v"), stdout = TRUE)
   )
-})[-1]
+})[-1]# [-1] to remove local file structure
 ```
 
-    ## [1] "Remote:   main @ origin (git@github.com:jimjunker1/Junker_temperature-energy-flux.git)"
-    ## [2] "Head:     [77eedd4] 2022-12-23: Initial commit"
+    ## [1] "Remote:   main @ origin (git@github.com:jimjunker1/Junker_temperature-energy-flux.git)"      
+    ## [2] "Head:     [30d3003] 2022-12-29: Commit of manuscript workflow and  documents for submission."
 
 ``` r
 ## session info
@@ -108,52 +108,55 @@ sessionInfo()
     ##   [7] callr_3.7.3          terra_1.5-34         TH.data_1.1-1       
     ##  [10] usethis_2.1.6        tzdb_0.3.0           base64url_1.4       
     ##  [13] xml2_1.3.3           httpuv_1.6.6         assertthat_0.2.1    
-    ##  [16] xfun_0.31            hms_1.1.2            ggdist_3.1.1        
-    ##  [19] bayesplot_1.9.0      evaluate_0.15        promises_1.2.0.1    
-    ##  [22] fansi_1.0.3          progress_1.2.2       dbplyr_2.2.1        
-    ##  [25] readxl_1.4.0         DBI_1.1.3            htmlwidgets_1.5.4   
-    ##  [28] tensorA_0.36.2       ellipsis_0.3.2       crosstalk_1.2.0     
-    ##  [31] backports_1.4.1      markdown_1.1         RcppParallel_5.1.5  
-    ##  [34] vctrs_0.5.0          remotes_2.4.2        cachem_1.0.6        
-    ##  [37] withr_2.5.0          ggforce_0.3.3        bdsmatrix_1.3-6     
-    ##  [40] checkmate_2.1.0      xts_0.12.1           prettyunits_1.1.1   
-    ##  [43] crayon_1.5.2         pkgconfig_2.0.3      tweenr_1.0.2        
-    ##  [46] pkgload_1.3.0        nlme_3.1-157         devtools_2.4.4      
-    ##  [49] nnet_7.3-17          rlang_1.0.6          globals_0.15.1      
-    ##  [52] lifecycle_1.0.3      miniUI_0.1.1.1       colourpicker_1.1.1  
-    ##  [55] sandwich_3.0-2       filelock_1.0.2       modelr_0.1.8        
-    ##  [58] cellranger_1.1.0     distributional_0.3.0 polyclip_1.10-0     
-    ##  [61] matrixStats_0.62.0   lmtest_0.9-40        Matrix_1.4-1        
-    ##  [64] loo_2.5.1            mc2d_0.1-21          carData_3.0-5       
-    ##  [67] zoo_1.8-10           reprex_2.0.1         base64enc_0.1-3     
-    ##  [70] processx_3.7.0       bitops_1.0-7         parallelly_1.32.0   
-    ##  [73] shinystan_2.6.0      rstatix_0.7.0        ggsignif_0.6.3      
-    ##  [76] scales_1.2.1         memoise_2.0.1        magrittr_2.0.3      
-    ##  [79] threejs_0.3.3        compiler_4.2.1       RefManageR_1.3.0    
-    ##  [82] rstantools_2.2.0     cli_3.3.0            urlchecker_1.0.1    
-    ##  [85] listenv_0.8.0        ps_1.7.1             Brobdingnag_1.2-8   
-    ##  [88] MASS_7.3-57          tidyselect_1.2.0     stringi_1.7.8       
-    ##  [91] yaml_2.3.6           svUnit_1.0.6         ggrepel_0.9.2       
-    ##  [94] bridgesampling_1.1-2 tools_4.2.1          rstudioapi_0.13     
-    ##  [97] git2r_0.30.1         posterior_1.2.2      farver_2.1.1        
-    ## [100] digest_0.6.29        shiny_1.7.3          storr_1.2.5         
-    ## [103] car_3.1-0            later_1.3.0          modEvA_3.5          
-    ## [106] colorspace_2.0-3     rvest_1.0.2          fs_1.5.2            
-    ## [109] eha_2.10.0           splines_4.2.1        expm_0.999-6        
-    ## [112] graphlayouts_0.8.0   shinythemes_1.2.0    flexmix_2.3-18      
-    ## [115] sessioninfo_1.2.2    xtable_1.8-4         jsonlite_1.8.3      
-    ## [118] tidygraph_1.2.1      modeltools_0.2-23    R6_2.5.1            
-    ## [121] profvis_0.3.7        pillar_1.8.1         htmltools_0.5.2     
-    ## [124] mime_0.12            txtq_0.2.4           glue_1.6.2          
-    ## [127] fastmap_1.1.0        DT_0.23              codetools_0.2-18    
-    ## [130] pkgbuild_1.3.1       mvtnorm_1.1-3        utf8_1.2.2          
-    ## [133] lattice_0.20-45      numDeriv_2016.8-1.1  arrayhelpers_1.1-0  
-    ## [136] curl_4.3.3           shinyjs_2.1.0        survival_3.3-1      
-    ## [139] munsell_0.5.0        haven_2.5.0          reshape2_1.4.4      
-    ## [142] gtable_0.3.1
+    ##  [16] xfun_0.31            rethinking_2.21      hms_1.1.2           
+    ##  [19] ggdist_3.1.1         bayesplot_1.9.0      evaluate_0.15       
+    ##  [22] promises_1.2.0.1     fansi_1.0.3          progress_1.2.2      
+    ##  [25] dbplyr_2.2.1         readxl_1.4.0         DBI_1.1.3           
+    ##  [28] htmlwidgets_1.5.4    tensorA_0.36.2       ellipsis_0.3.2      
+    ##  [31] crosstalk_1.2.0      backports_1.4.1      permute_0.9-7       
+    ##  [34] markdown_1.1         RcppParallel_5.1.5   vctrs_0.5.0         
+    ##  [37] cmdstanr_0.5.2       remotes_2.4.2        cachem_1.0.6        
+    ##  [40] withr_2.5.0          ggforce_0.3.3        bdsmatrix_1.3-6     
+    ##  [43] checkmate_2.1.0      vegan_2.6-2          xts_0.12.1          
+    ##  [46] prettyunits_1.1.1    cluster_2.1.3        crayon_1.5.2        
+    ##  [49] labeling_0.4.2       pkgconfig_2.0.3      tweenr_1.0.2        
+    ##  [52] pkgload_1.3.0        nlme_3.1-157         devtools_2.4.4      
+    ##  [55] nnet_7.3-17          rlang_1.0.6          globals_0.15.1      
+    ##  [58] lifecycle_1.0.3      miniUI_0.1.1.1       colourpicker_1.1.1  
+    ##  [61] sandwich_3.0-2       filelock_1.0.2       modelr_0.1.8        
+    ##  [64] cellranger_1.1.0     distributional_0.3.0 polyclip_1.10-0     
+    ##  [67] matrixStats_0.62.0   lmtest_0.9-40        Matrix_1.4-1        
+    ##  [70] loo_2.5.1            mc2d_0.1-21          carData_3.0-5       
+    ##  [73] zoo_1.8-10           reprex_2.0.1         base64enc_0.1-3     
+    ##  [76] processx_3.7.0       bitops_1.0-7         shape_1.4.6         
+    ##  [79] parallelly_1.32.0    shinystan_2.6.0      rstatix_0.7.0       
+    ##  [82] ggsignif_0.6.3       scales_1.2.1         memoise_2.0.1       
+    ##  [85] magrittr_2.0.3       threejs_0.3.3        compiler_4.2.1      
+    ##  [88] RefManageR_1.3.0     rstantools_2.2.0     cli_3.3.0           
+    ##  [91] urlchecker_1.0.1     listenv_0.8.0        ps_1.7.1            
+    ##  [94] Brobdingnag_1.2-8    mgcv_1.8-40          MASS_7.3-57         
+    ##  [97] tidyselect_1.2.0     stringi_1.7.8        highr_0.9           
+    ## [100] yaml_2.3.6           svUnit_1.0.6         ggrepel_0.9.2       
+    ## [103] bridgesampling_1.1-2 tools_4.2.1          rstudioapi_0.13     
+    ## [106] git2r_0.30.1         posterior_1.2.2      farver_2.1.1        
+    ## [109] digest_0.6.29        shiny_1.7.3          storr_1.2.5         
+    ## [112] egg_0.4.5            car_3.1-0            later_1.3.0         
+    ## [115] modEvA_3.5           colorspace_2.0-3     rvest_1.0.2         
+    ## [118] fs_1.5.2             eha_2.10.0           splines_4.2.1       
+    ## [121] expm_0.999-6         graphlayouts_0.8.0   shinythemes_1.2.0   
+    ## [124] flexmix_2.3-18       sessioninfo_1.2.2    xtable_1.8-4        
+    ## [127] jsonlite_1.8.3       tidygraph_1.2.1      modeltools_0.2-23   
+    ## [130] R6_2.5.1             profvis_0.3.7        pillar_1.8.1        
+    ## [133] htmltools_0.5.2      mime_0.12            txtq_0.2.4          
+    ## [136] glue_1.6.2           fastmap_1.1.0        DT_0.23             
+    ## [139] codetools_0.2-18     pkgbuild_1.3.1       mvtnorm_1.1-3       
+    ## [142] utf8_1.2.2           lattice_0.20-45      numDeriv_2016.8-1.1 
+    ## [145] arrayhelpers_1.1-0   curl_4.3.3           shinyjs_2.1.0       
+    ## [148] survival_3.3-1       munsell_0.5.0        haven_2.5.0         
+    ## [151] reshape2_1.4.4       gtable_0.3.1
 
 </details>
 
 \* The `drake` package has been superseded by the `targets` package.
-This repository may be transferred to that workflow and/or placed into a
-Docker container upon acceptance.
+This repository may be transferred to that workflow and/or accompanied
+with a Docker container to ensure backward compatability.

@@ -92,8 +92,6 @@ model_diet_props <- function(full_diet_df = full_diet_df,
                 prior(normal(0,3), class = "Intercept", dpar = "mugreenalgae"),
                 prior(normal(0,1), class = "Intercept", dpar = "muplantmaterial"))
   
-  # stan_diet_code =make_stancode(formula = multilevel_model_formula, prior = dir_prior, data = diet_df, save_model = 'diet_hier_dir_model.stan')
-  
   dir_diet_model <- brm(multilevel_model_formula,
                     data = diet_df, 
                     family = dirichlet(),
@@ -106,6 +104,8 @@ model_diet_props <- function(full_diet_df = full_diet_df,
                     file = "./data/diet-dir_brms_m2",
                     rerun = 'on-change',
                     backend = 'cmdstanr')
+  
+stan_diet_code =make_stancode(formula = multilevel_model_formula, family = dirichlet(), prior = dir_prior, data = diet_df, save_model = './data/diet_hier_dir_model.stan')
   # saveRDS(dir_diet_model, "./data/diet-dir_brms_m2.rds")
 
   # create model summary for assessing model fit

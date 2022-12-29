@@ -1,28 +1,18 @@
 ---
-title: "Environmental warming increases the importance of high-turnover energy channels in stream food webs"
-author:
-  - name: James R. Junker
-  - name: Wyatt F. Cross
-  - name: James M. Hood
-  - name: Jonathan P. Benstead
-  - name: Alexander D. Huryn
-  - name: Daniel Nelson
-  - name: Jón S. Ólafsson
-  - name: Gísli M. Gíslason
 output:
    word_document:
       reference_docx: working_docx_template.docx
       toc: no
       pandoc_args:
       - '--lua-filter=scholarly-metadata.lua'
-      - '--lua-filter=author-info-blocks.lua'
+      # - '--lua-filter=author-info-blocks.lua'
       - '--filter=pandoc-crossref.exe'
    pdf_document:
      keep_tex: true
    html_document: default
    pandoc_args:
       - '--lua-filter=scholarly-metadata.lua'
-      - '--lua-filter=author-info-blocks.lua'
+      # - '--lua-filter=author-info-blocks.lua'
       - '--filter=pandoc-crossref.exe'
 header-includes:
 - \usepackage{lineno}
@@ -44,9 +34,11 @@ source("./packages.R")
 
 ```
 
+Appendix S2: Supporting information for Junker, J. R., W. F. Cross, J. M. Hood, J. P. Benstead, A. D. Huryn, D. Nelson, J. S. Ólafsson, and G. M. Gíslason, "*Environmental warming increases the importance of high-turnover energy channels in stream food webs*" for review and publication in *Ecology*.
+
 ## Supporting Information: Appendix S2
 
-### Appendix S2: Table S1
+Appendix S2: Table S1
 
 ```{r GINI table, echo = FALSE, warning=FALSE, message=FALSE}
 tab1_caption = "Appendix S2:Table S1. Evenness of organic matter fluxes among consumers within a stream community measured by the Gini index, both raw (\\'non-normalized\\') and \\'normalized\\' for consumer richness"
@@ -63,7 +55,7 @@ gini_analysis[["stream_gini_summary"]] %>%
 
 \newpage
 
-### Appendix S2: Figure S1
+Appendix S2: Figure S1
 
 ```{r raw lorenz, echo=FALSE, message=FALSE, warning = FALSE, dpi = 400, fig.cap="Appendix S2:Figure S1. Lorenz plot of relative community flux by species in ascending order of annual population organic matter flux (g AFDM m^-2^ y^-1^)"}
 drake::loadd(lorenz_skew_fig)
@@ -73,7 +65,7 @@ lorenz_skew_fig[["lorenz_flux_plot"]]
 
 \newpage
 
-### Appendix S2: Figure S2
+Appendix S2: Figure S2
 
 ```{r biomass lorenz, echo=FALSE, message=FALSE, warning=FALSE, dpi = 400, fig.cap="Appendix S2:Figure S2. Cumulative plot of relative community flux by species in relation to mean annual population biomass (mg m^-2^)."}
 lorenz_skew_fig[["bio_lorenz_flux_plot"]]
@@ -82,7 +74,7 @@ lorenz_skew_fig[["bio_lorenz_flux_plot"]]
 
 \newpage
 
-### Appendix S2: Figure S3
+Appendix S2: Figure S3
 
 ```{r skew distribution, echo = FALSE, warning=FALSE, message=FALSE, fig.cap="Appendix S2:Figure S3. Probability distribution of empirical Sk~flux~ measurements in relation to (a) mean body size and (b) annual P:B compared to random species ordering. The red lines represent the 2.5% and 97.5% percentiles of the Sk~flux~ values from random ordering distributions in each stream community."}
 drake::loadd(random_skew_fig)
