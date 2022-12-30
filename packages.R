@@ -2,14 +2,19 @@
 ###load packages and functions
   if(!require("pacman")) install.packages("pacman")
   library(pacman)
-  package.list <- c("conflicted", "dotenv", "drake","data.table","gtools","rlist",
-                    "RCurl","plyr","tidyverse","furrr", "fnmate", "moments","fuzzySim",
-                    "dflow","rmarkdown","tictoc","chron","lubridate","httr","TTR", 
-                    "grid","gridExtra", "ggridges", "fluxweb", "rmarkdown", "MuMIn","zoib",
-                    "viridis", "broom","bbmle","ggthemes", "ggeffects", "ggpubr","betareg",
-                    "fluxweb","igraph","ggraph","magick","cowplot","rriskDistributions",
-                    "rstan", "brms", "tidybayes", "parallel", "hillR", "RInSp", "rsample",
-                    "emmeans")
+  # package.list <- c("conflicted", "dotenv", "drake","data.table","gtools","rlist",
+  #                   "RCurl","plyr","tidyverse","furrr", "fnmate", "moments","fuzzySim",
+  #                   "dflow","rmarkdown","tictoc","chron","lubridate","httr","TTR", 
+  #                   "grid","gridExtra", "ggridges", "fluxweb", "rmarkdown", "MuMIn","zoib",
+  #                   "viridis", "broom","bbmle","ggthemes", "ggeffects", "ggpubr","betareg",
+  #                   "fluxweb","igraph","ggraph","magick","cowplot","rriskDistributions",
+  #                   "rstan", "brms", "tidybayes", "parallel", "hillR", "RInSp", "rsample",
+  #                   "emmeans")
+  package.list <- c('conflicted', 'dotenv', 'drake', 'abind', 'brms','cowplot',
+                    'dplyr', 'egg', 'furrr', 'ggplot2', 'ggpubr', 'grid', 'gridExtra',
+                    'loo', 'lubridate', 'plyr', 'purrr', 'RInSp', 'rlist',
+                    'rriskDistributions', 'stringr', 'tibble', 'tidyr', 'vegan',
+                    'viridis')
   p_load(char = package.list, install = TRUE, character.only = TRUE)
   pacman::p_load_gh("jimjunker1/junkR")
   # library(junkR)
