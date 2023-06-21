@@ -49,7 +49,7 @@ lcs_plot = function(curves){
   curves = rbind(tmp,curves)
   curves$source = factor(curves$source, levels = unique(curves$source))
   g = ggplot(data = curves,aes(x = x,y = y,color = source, linetype = source))
-  g = g + geom_line(size = 1.2)+
+  g = g + geom_line(linewidth = 1.2)+
     geom_point(size = 3.5)+
     theme_bw()+
     theme(legend.position="bottom")+

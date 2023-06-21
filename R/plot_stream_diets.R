@@ -10,9 +10,11 @@ plot_stream_diets <- function(diet_predictions = modeled_diets[["diet_prediction
     dplyr::mutate(site = factor(site, levels = names(stream_order_list))) %>%
     group_by(site, diet_item) %>%
     sample_n(size = 5000, replace = FALSE) %>%
-    ggplot(aes(x = rel_area)) + geom_density(aes(group = diet_item, color = diet_item, fill = diet_item), alpha = 0.5) +
-    scale_color_viridis_d(option = 'plasma')+
-    scale_fill_viridis_d(option = 'plasma')+
+    ggplot(aes(x = rel_area)) + 
+    geom_density(aes(group = diet_item, color = diet_item, fill = diet_item), alpha = 0.5) +
+    scale_x_continuous(name = "Relative area", labels = c(0,0.25,0.5,0.75,1))+
+    scale_color_viridis_d(name = "Diet item", option = 'plasma')+
+    scale_fill_viridis_d(name = "Diet item", option = 'plasma')+
     theme_tufte(ticks = TRUE) +
     geom_rangeframe(sides = "lb")+
     facet_wrap(~site, ncol = 2) -> stream_diets_plot

@@ -1,4 +1,4 @@
-// generated with brms 2.17.0
+// generated with brms 2.19.0
 functions {
   /* dirichlet-logit log-PDF
    * Args:
@@ -331,19 +331,25 @@ model {
   // likelihood including constants
   if (!prior_only) {
     // initialize linear predictor term
-    vector[N] muanimal = Intercept_muanimal + rep_vector(0.0, N);
+    vector[N] muanimal = rep_vector(0.0, N);
     // initialize linear predictor term
-    vector[N] mucyanobacteria = Intercept_mucyanobacteria + rep_vector(0.0, N);
+    vector[N] mucyanobacteria = rep_vector(0.0, N);
     // initialize linear predictor term
-    vector[N] mudiatom = Intercept_mudiatom + rep_vector(0.0, N);
+    vector[N] mudiatom = rep_vector(0.0, N);
     // initialize linear predictor term
-    vector[N] mufilamentous = Intercept_mufilamentous + rep_vector(0.0, N);
+    vector[N] mufilamentous = rep_vector(0.0, N);
     // initialize linear predictor term
-    vector[N] mugreenalgae = Intercept_mugreenalgae + rep_vector(0.0, N);
+    vector[N] mugreenalgae = rep_vector(0.0, N);
     // initialize linear predictor term
-    vector[N] muplantmaterial = Intercept_muplantmaterial + rep_vector(0.0, N);
+    vector[N] muplantmaterial = rep_vector(0.0, N);
     // linear predictor matrix
     vector[ncat] mu[N];
+    muanimal += Intercept_muanimal;
+    mucyanobacteria += Intercept_mucyanobacteria;
+    mudiatom += Intercept_mudiatom;
+    mufilamentous += Intercept_mufilamentous;
+    mugreenalgae += Intercept_mugreenalgae;
+    muplantmaterial += Intercept_muplantmaterial;
     for (n in 1:N) {
       // add more terms to the linear predictor
       muanimal[n] += r_1_muanimal_1[J_1[n]] * Z_1_muanimal_1[n] + r_2_muanimal_1[J_2[n]] * Z_2_muanimal_1[n] + r_3_muanimal_1[J_3[n]] * Z_3_muanimal_1[n] + r_4_muanimal_1[J_4[n]] * Z_4_muanimal_1[n];

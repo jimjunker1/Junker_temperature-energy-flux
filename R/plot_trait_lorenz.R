@@ -12,8 +12,8 @@ plot_trait_lorenz <- function(lorenz_analysis, spp_rankings_summary) {
     ggplot(aes(x = rel_spp, y = rel_flux)) +
     geom_abline(color = "black")+
     geom_abline(intercept = 1, slope = -1, color = "black", linetype = "dotted")+
-    geom_line(aes(group = boot_id), size = 1, color = 'grey', alpha = 0.5) +
-    geom_line(data = lorenz_analysis[["relative_flux_summary"]], aes(x = rel_spp, y = rel_flux, color = site), size = 1.5)+
+    geom_line(aes(group = boot_id), linewidth = 1, color = 'grey', alpha = 0.5) +
+    geom_line(data = lorenz_analysis[["relative_flux_summary"]], aes(x = rel_spp, y = rel_flux, color = site), linewidth = 1.5)+
     scale_x_continuous(name = "Cumulative species", limits = c(0,1), expand = c(0,0.03))+
     scale_y_continuous(name = "Cumulative flux", limits = c(0,1), expand = c(0,0.03))+
     scale_colour_manual(values = ocecolors[['temperature']][oce_temp_pos], labels = stream_temp_labels)+
@@ -29,7 +29,7 @@ plot_trait_lorenz <- function(lorenz_analysis, spp_rankings_summary) {
 
     plot_legend = cowplot::get_legend(lorenz_flux_plot + guides(color = guide_legend(byrow = TRUE, nrow = 1)))
     plot_legend$grobs <- lapply(plot_legend$grobs, function(z) modifyList(z, list(x = unit(0.5, 'npc'), just = "center")))
-    plot_legend$layout
+    # plot_legend$layout
 #     
 #     pb_label = grid::textGrob(expression("Increasing"~italic("P:B")), x = unit(0.5, 'npc'), just = "centre",
 #                              gp = gpar(fontfamily = 'serif', fontsize = 8))
@@ -117,7 +117,7 @@ plot_trait_lorenz <- function(lorenz_analysis, spp_rankings_summary) {
         geom_abline(color = "black")+
         geom_abline(intercept = 1, slope = -1, color = "black", linetype = "dotted")+
         geom_line(aes(group = boot_id), color = "grey", alpha = 0.5) +
-        geom_line(data = spp_rankings_summary[["bio_spp_rank"]], aes(x = rel_bio, y = rel_flux, color = site), size = 1.5) +
+        geom_line(data = spp_rankings_summary[["bio_spp_rank"]], aes(x = rel_bio, y = rel_flux, color = site), linewidth = 1.5) +
         scale_x_continuous(name = "Cumulative Biomass", limits = c(0,1), expand = c(0,0.03))+
         scale_y_continuous(name = "Cumulative flux", limits = c(0,1), expand = c(0,0.03))+
         scale_colour_manual(values = ocecolors[['temperature']][oce_temp_pos], labels = stream_temp_labels)+

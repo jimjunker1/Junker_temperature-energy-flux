@@ -1,11 +1,13 @@
 ## library() calls go here
 ###load packages and functions
+here::here()
+here::i_am("packages.R")
   if(!require("pacman")) install.packages("pacman")
   library(pacman)
   package.list <- c("conflicted", "dotenv", "drake","data.table","gtools","rlist",
                     "RCurl","plyr","tidyverse","furrr", "fnmate", "moments","fuzzySim",
                     "dflow","tictoc","chron","lubridate","httr","TTR",
-                    "grid","gridExtra", "ggridges", "MuMIn",
+                    "grid","gridExtra", "ggridges", "MuMIn", "here",
                     "viridis", "broom","bbmle","ggthemes", "ggeffects", "ggpubr","betareg",
                     "igraph","ggraph","magick","cowplot","rriskDistributions",
                     "rstan", "brms", "tidybayes", "parallel", "hillR", "RInSp","rsample",
