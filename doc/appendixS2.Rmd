@@ -35,7 +35,7 @@ source(here::here("packages.R"))
 
 ```
 
-Appendix S2: Supporting information for Junker, J. R., W. F. Cross, J. M. Hood, J. P. Benstead, A. D. Huryn, D. Nelson, J. S. Ólafsson, and G. M. Gíslason, "*Environmental warming increases the importance of high-turnover energy channels in stream food webs*" for review and publication in *Ecology*.
+Appendix S2: Supporting information for Junker, J. R., W. F. Cross, J. M. Hood, J. P. Benstead, A. D. Huryn, D. Nelson, J. S. Ólafsson, and G. M. Gíslason, *Environmental warming increases the importance of high-turnover energy channels in stream food webs*.
 
 ## Appendix S2
 
@@ -50,7 +50,8 @@ knitr::include_graphics(here::here("doc/revision/tempDOY.png"), rel_path = FALSE
 
 Appendix S2: Figure S2
 
-```{r spp trait plot, fig.width=7, fig.height=8.5, fig.cap = "Appendix S2: Figure S2. Species-level distributions of population variables (median $\\pm$ median absolute deviations) observed across all streams in the study. a) total annual organic matter flux, b) standing population biomass, c) population abundance, and d) mean individual body size. All variables have been log~10~-transformed."}
+```{r spp trait plot, fig.width=7.5, fig.height=8.5, fig.cap = "Appendix S2: Figure S2. Species-level distributions of population variables (median $\\pm$ median absolute deviations) observed across all streams in the study. a) total annual organic matter flux, b) standing population biomass, c) population abundance, and d) mean individual body size. All variables have been log~10~-transformed."}
+drake::loadd(spp_trait_histograms)
 grid.draw(spp_trait_histograms[['spp_trait_plot']])
 ```
 

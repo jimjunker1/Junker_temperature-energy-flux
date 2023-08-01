@@ -8,7 +8,7 @@ author:
   - name: Wyatt F. Cross
     institute: msu
   - name: James M. Hood
-    institute: osu
+    institute: [osu, ]
   - name: Jonathan P. Benstead
     institute: bama
   - name: Alexander D. Huryn
@@ -22,7 +22,8 @@ author:
 institute:
   - msu: Department of Ecology, Montana State University, Bozeman, MT 59717, USA
   - glrc: Current `address:` Great Lakes Research Center, Michigan Technological University, Houghton, MI 49931, USA
-  - osu: Department of Evolution, Ecology, and Organismal Biology, The Ohio State University, Translational Data Analytics Institute, The Aquatic Ecology Laboratory, Columbus, OH 43212, USA
+  - osu: The Aquatic Ecology Laboratory, Department of Evolution, Ecology, and Organismal Biology, The Ohio State University, Columbus, OH 43212, USA
+  - tdai: Translational Data Analytics Institute, The Ohio State University, Columbus, OH 43212, USA
   - bama: Department of Biological Sciences, University of Alabama, Tuscaloosa, AL  35487, USA
   - usu: National Aquatic Monitoring Center, Department of Watershed Sciences, Utah State University, Logan, UT 84322, USA
   - veidi: Institute of Marine and Freshwater Fisheries, Hafnarfjördur, Iceland
@@ -79,8 +80,6 @@ Manuscript details:
 -   Abstract word count: 269/350
 
 -   Main text word count (w/ references): 8476
-
--   Page count w/ references: 35/30
 
 -   Appendices: 3
 
@@ -208,18 +207,18 @@ which ecosystem processes accelerate through the effects of smaller body
 size and higher turnover rates, with a potentially strong imprint on
 food web structure and energy fluxes [@gibert2019a].
 
-Here, we address two overarching and open questions focused on temperature effects on food web dynamics. First, how does ecosystem temperature shape the relationship between organic matter (OM) fluxes and community-level trait distributions, specifically body size and biomass turnover, across ecosystems? Second, how does temperature shape the role of deterministic vs. stochastic sorting processes in driving relative fluxes of OM through consumer communities? To do so, we quantified patterns of OM flux in stream food webs across a natural temperature gradient (\~5--27$^\circ$C) in southwestern
+Here, we address two overarching and open questions focused on temperature effects on food web dynamics. First, how does ecosystem temperature shape the relationship between organic matter (OM) fluxes and community-level trait distributions, specifically body size and biomass turnover, across ecosystems? Second, how does temperature shape the role of deterministic vs. stochastic sorting processes in driving relative fluxes of OM through consumer communities? We quantified patterns of OM flux in stream food webs across a natural temperature gradient (\~5--27$^\circ$C) in southwestern
 Iceland. Previous research in these streams has shown a strong positive
 effect of warming on primary production both among streams [@demars2011;
 @padfield2017] and seasonally within streams [@ogorman2012; @hood2018].
 Due to high light levels and minimal OM inputs from surrounding terrestrial
 habitat, invertebrates in these streams rely on autochthonous
-production [@ogorman2012; @nelson2020]; thus the dynamics of in-stream primary
+production [@ogorman2012; @nelson2020]; thus, the dynamics of in-stream primary
 production act as a strong control on energy flow through consumers
 [@junker2020]. We therefore predicted that annual OM fluxes
 to consumers would increase with stream temperature, mirroring patterns
 in resource availability and consumer energy demand. We also
-hypothesized that temperature would act as a principle environmental
+hypothesized that temperature would act as a principal environmental
 filter on community assembly and OM fluxes by favoring
 'fast' life-history traits associated with small-bodied organisms.
 Specifically, we predicted that warming temperatures would lead to
@@ -229,7 +228,7 @@ reduced average body size and increased average biomass turnover (i.e.,
 small-bodied and high *P:B* taxa at higher temperatures, and that these
 patterns would not arise by random sorting, but instead through 'non-random ordering', suggesting deterministic filtering of species traits. Our results should help refine general predictions about how ongoing
 climate warming, and its influence on key traits, is likely to shape
-energy flux through animal food webs.
+energy flux through food webs dominated by ectotherms.
 
 # Methods {#methods}
 
@@ -252,7 +251,7 @@ logger, Onset Computer Corp., Pocasset, MA, USA).
 We sampled macroinvertebrate communities approximately monthly in six
 streams, four from July 2011 to August 2012 and two from October 2010 to
 October 2011 (*n* = 6 streams). The two streams sampled from 2010--2011
-were part of a separate warming manipulation during the un-manipulated
+were part of a separate warming manipulation but data for this study was were collected during the un-manipulated
 reference period [@nelson2017; @nelson2017a]. Inter-annual comparisons
 of primary and secondary production in previous studies showed minimal
 differences among years in un-manipulated streams, suggesting that
@@ -288,7 +287,7 @@ measured from field pictures using image analysis software
 [@schindelin2012], and body lengths were converted to mass (mg ash-free
 dry mass [AFDM]) using published length-mass regressions [@benke1999;
 @ogorman2012; @hannesdottir2013]. Growth rates (*g*, d^-1^) were
-calculated from the changes in mean body size (*M*) over a given time
+calculated from changes in mean body size (*M*) over a given time
 interval (*t*) with the following equation:
 
 $$g = log_e ( M_{t+\Delta t} / M_t) / \Delta t$$ {#eq:eqn1}
@@ -322,19 +321,18 @@ annual secondary production (g AFDM m^-2^ y^-1^).
 
 ## Organic matter consumption estimates {#organic-matter-consumption-estimates}
 
-Organic matter fluxes (g AFDM m^-2^ y^-1^) through the community were
+Organic matter fluxes (g AFDM m^-2^ y^-1^) through stream communities were
 calculated using the trophic basis of production method [TBP\;
 @benke1980]. Taxon-specific secondary production estimates were combined
 with diet proportions, diet-specific assimilation efficiencies, *AE~i~*,
 and net production efficiencies, *NPE* [e.g., @mccullough1975], to
-estimate consumption of organic matter. Consumer diets were quantified
-in numerically dominant taxa through direct inspection of gut contents
+estimate consumption of organic matter. Consumer diets of numerically dominant taxa were quantified through direct inspection of gut contents
 from multiple individuals throughout the year. Removal and preparation
 of gut tracts followed the methods outlined in
 Rosi-Marshall and coauthors [-@rosi-marshall2016]. To estimate variability in diet
 compositions and to impute missing values for non-dominant taxa, we
 modeled the diet proportions within each stream using a hierarchical
-multivariate model [@fordyce2011; @coblentz2017]. Here, diet proportions for food categories were assumed to follow a Dirichlet distribution with model-estimated expected proportions in diet for each food category and a concentration parameter to estimate variability around this expectation. We accounted for the hierarchical data structure by fitting stream-specific random intercepts, as well as, random intercept offsets for taxon nested within each stream. All models were specified in the Stan language [@stan2019] using the *brms* package in R [@burkner2017]. Further model details can be found in supporting information (Appendix S1). We estimated diet overlap within and across stream food webs by calculating diet overlap from 1000 independent draws from the posterior distributions of modeled diet estimates. Overlap was calculated with the 'overlap()' function in the *RInSp* package [@zaccarelli2013].
+multivariate model [@fordyce2011; @coblentz2017]. Here, diet proportions for food categories were modeled following a Dirichlet distribution with expected proportions in diet and a concentration parameter to estimate variability around this expectation. We accounted for the hierarchical data structure by fitting stream-specific random intercepts, as well as random intercept offsets for taxon nested within each stream. All models were specified in the Stan language [@stan2019] using the *brms* package in R [@burkner2017]. Further model details can be found in supporting information (Appendix S1). We estimated diet overlap within and across stream food webs by calculating diet overlap from 1000 independent draws from the posterior distributions of modeled diet estimates. Overlap was calculated with the 'overlap()' function in the *RInSp* package [@zaccarelli2013].
 
 For each food
 category, *i*, diet proportions were multiplied by the gross growth
@@ -369,10 +367,10 @@ from an assumed beta distribution with median *NPE* = 0.45 (95% PI =
 
 ### Evenness among taxa {#evenness-among-taxa}
 
-To visualize and quantify the evenness of OM fluxes among taxa within
+To visualize and quantify the evenness of OM fluxes, $p$, among taxa within
 each stream, we constructed Lorenz curves [@lorenz1905] on rank-ordered
 OM fluxes, such that in a community with $S$ species the relative OM
-flux of species *i*, $p_i$, is ordered $p_1 \leq p_2 \leq ... p_S$. The
+flux of species *j*, $p_j$, is ordered $p_1 \leq p_2 \leq ... p_S$. The
 Lorenz curve shows how a value, in this case OM flux, accumulates with an
 increasing cumulative proportion of taxa. In a community with an equal
 distribution of OM flux among taxa, the Lorenz curve is a
@@ -380,7 +378,7 @@ straight diagonal line. Deviation from equality was calculated as the
 Gini coefficient [@gini1921], normalized for differences in $S$ among
 streams, $G^*$ [@solomon1975; @chao2019]:
 
-$$ G^* = (2 \sum_{i = 1}^S ip_i -2)/(S-1)$$ {#eq:eq2}
+$$ G^* = (2 \sum_{j = 1}^S ip_j -2)/(S-1)$$ {#eq:eq2}
 
 where $G^*$ represents an index of relative evenness of OM fluxes
 bounded between zero and one; a value of one represents a community with
@@ -421,7 +419,7 @@ other parametric or moments-based approaches because it is well defined and requ
 [@groeneveld1984]. We repeated this analysis for all estimates of OM
 flux used to calculate *M* and *P:B* in each stream community. Skewness
 coefficients range from -1 to 1, where -1 indicates that OM
-fluxes are skewed perfectly away from a trait and 1 indicates that
+fluxes are skewed perfectly away from a trait while 1 indicates that
 higher relative fluxes are perfectly associated with higher trait
 values. To determine if the skewness of fluxes with *M* and *P:B* was
 related to mean annual stream temperature, we use bootstrapped beta
@@ -445,8 +443,8 @@ skew values that are more likely due to random chance ('random
 ordering'), regardless of raw skewness values, suggesting other traits
 or processes govern the distribution of OM fluxes within their
 communities. To accomplish this, we first had to account for statistical
-constraints that restrict the range of possible outcomes [i.e.\; feasible
-set, @haegeman2008; @diaz2021a], given the number of species and the
+constraints that restrict the range of possible outcomes [i.e., feasible
+set\; @haegeman2008; @diaz2021a], given the number of species and the
 relative distribution of OM fluxes within a community. We permuted a random subset of each stream community's feasible set by
 randomly ordering species and calculating skewness in the cumulative
 distribution of annual OM fluxes 100,000 times in each stream. This
@@ -498,7 +496,7 @@ varied
 \~`r round((max_flux$flux_mg_m_y_mean/min_flux$flux_mg_m_y_mean),0)`-fold
 among streams, from `r round((min_flux$flux_mg_m_y_mean/1000), 1)`
 (`r round((min_flux$flux_mg_m_y_quant2.5/1000),1)` --
-`r round((min_flux$flux_mg_m_y_quant97.5/1000),1)`; mean (95% PI)) to `r round((max_flux$flux_mg_m_y_mean/1000),1)`
+`r round((min_flux$flux_mg_m_y_quant97.5/1000),1)`; mean [95% Percentile interval]) to `r round((max_flux$flux_mg_m_y_mean/1000),1)`
 (`r round((max_flux$flux_mg_m_y_quant2.5/1000),1)`--`r round((max_flux$flux_mg_m_y_quant97.5/1000),1)`)
 g AFDM $m^{-2} y^{-1}$ and was positively related to temperature (Figure
 1A).
@@ -792,9 +790,8 @@ our knowledge of temperature-mediated changes to ecosystems [e.g.,
 @oconnor2009], general patterns remain elusive and empirical studies
 often show idiosyncratic outcomes [@zhang2017; @nelson2017], especially
 at higher levels of biological organization [@walther2002;
-@woodward2010]. Here, we demonstrate that along a wide natural gradient
-of ecosystem temperatures, warming acts as a strong environmental filter
-of species traits. In particular, we found that increasing temperatures
+@woodward2010]. Here, we demonstrate that warming acts as a strong environmental filter
+of species traits along a wide natural gradient of ecosystem temperatures. In particular, we found that increasing temperatures
 were associated with reduced population body size and increased
 population biomass turnover among stream invertebrate communities,
 leading to higher organic matter fluxes through these populations. In
@@ -838,7 +835,7 @@ for ecosystems in a changing climate [@gibert2019a].
 A general reduction in body size has been deemed a "universal" response
 to warming [@daufresne2009; @gardner2011; @uszko2022], but notable
 deviations exist across ecosystems [@thresher2007; @ogorman2012;
-@ohlberger2013]. Based on our monthly sampling over a full annual cycles, we observed a clear decrease in the average
+@ohlberger2013]. Based on our monthly sampling over a full annual cycle, we observed a clear decrease in the average
 body size of populations from cool to warm communities (Figure 1B),
 corresponding to
 \~`r ((exp(mean(m_spp_temp_coefs, na.rm = TRUE)) - 1)*100) %>% round(0)`%
@@ -848,7 +845,7 @@ different sets of taxa), the magnitude of decline is consistent with
 intra-taxon patterns measured across broad phylogenetic groups
 [@deutsch2022]. Interestingly, our results contrast with a warming
 experiment conducted in one of our study streams showing that a relatively small increase in temperature (3$^\circ$C) shifted invertebrate community biomass and productivity from
-smaller to larger organisms [@nelson2017; @nelson2017a]. Moreover, an additional study at Hengill that examined community size spectra across a much broader range of body sizes and taxonomic groups (i.e., diatoms to fish), but with limited temporal sampling (i.e., August), reported an unexpected shallowing of mass-abundance slopes, suggesting warming may favor larger-bodied individuals [@adams2013; @ogorman2017]. Other studies
+smaller to larger organisms [@nelson2017; @nelson2017a]. Moreover, an additional study at Hengill that examined community size spectra across a much broader range of body sizes and taxonomic groups (i.e., diatoms to fish), but with limited temporal sampling (i.e., August only), reported an unexpected shallowing of mass-abundance slopes, suggesting warming may favor larger-bodied individuals [@adams2013; @ogorman2017]. Other studies
 have reported similar deviations from the "universal" response for other
 taxonomic groups [e.g., invertebrates: @zeuss2017; birds: @geist1987;
 @riemer2018; fish: @rypel2014]. While there is a strong propensity for
@@ -902,7 +899,7 @@ material cycles in a warming world.
 
 # Acknowledgements {#acknowledgements}
 
-We are grateful to Sigurður Guðjonsson, Guðni Guðbergsson, and the staff
+We are grateful to Sigurður Guðjónsson, Guðni Guðbergsson, and the staff
 at the Veiðimálastofnun for providing laboratory space and logistical
 support. We are also grateful to Sveinbjörn Steinþorsson at the
 University of Iceland for super-jeep transport to our field sites during
@@ -941,7 +938,7 @@ narrow bars represent the 2.5^th^ and 97.5^th^ percentile bounds.
 Figure 2. (a) Percent contribution of taxa to OM flux (log~e~[g AFDM
 m^-2^ y^-1^])in each stream; colors correspond to mean annual
 temperature shown in the legend; (b) rank-ordered organic matter flux
-(log~e~[g AFDM m^-2^ y^-1^]) by taxon. Taxa abbreviations: F:Naid,
+(log~e~[g AFDM m^-2^ y^-1^]) by taxon. Taxon abbreviations: F:Naid,
 Family Naididae; N comm, *Nais communis*; C syl, *Cricotopus
 sylvestris*; R balt, *Radix balthica*; Macro sp., *Macropelopia* sp.; C
 dent, *Chaetocladius dentiforceps*; S vitt, *Simulium vittatum*; Euk
@@ -953,7 +950,7 @@ ursinum*; SC: Cope, Subclass Copepoda; R eff, *Rheocricotopus effusus*;
 S vern, *Simulium vernum*; Chaet sp., *Chaetocladius* sp.; Thien sp.,
 *Thienemanniella* sp.; O frig, *Orthocladius frigidus*; Limn rip,
 *Limnophora riparia*; Dicra, *Dicranota* sp.; C: Ost, Class Ostracoda; S
-aur, *Simulium aurem*.
+aur, *Simulium aureum*.
 
 Figure 3. (a) Lorenz curves showing cumulative relative organic matter
 flux among taxa with increasing body size (from left to right; *M*, mg

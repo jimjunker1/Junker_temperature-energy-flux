@@ -82,7 +82,7 @@ plot_trait_histogram <- function(spp_rankings = spp_rankings_summary,
     ggplot()+
     geom_errorbar(aes(x = cleanGroup, ymin = flux_g_m_y_lower_log10, ymax = flux_g_m_y_upper_log10), width = 0, linewidth = 0.6)+
     geom_point(aes(x = cleanGroup, y = flux_g_m_y_median_log10), size = 2)+
-    scale_y_continuous(name = expression("OM flux (g "~m^-2~y^-1~")"))+
+    scale_y_continuous(name = expression(atop("OM flux","(g"*m^-2~y^-1*")")))+
     theme(axis.text.x = element_blank(),
           axis.title.x = element_blank()) -> spp_flux_plot#;spp_flux_plot
     
@@ -108,7 +108,7 @@ plot_trait_histogram <- function(spp_rankings = spp_rankings_summary,
     ggplot()+
     geom_errorbar(aes(x = cleanGroup, ymin = bio_mg_m_lower_log10, ymax = bio_mg_m_upper_log10), width = 0, linewidth = 0.6)+
     geom_point(aes(x = cleanGroup, y = bio_mg_m_median_log10), size = 2)+
-    scale_y_continuous(name = expression("Biomass (mg "~m^-2~")"))+
+    scale_y_continuous(name = expression(atop("Biomass","(mg"*m^-2*")")))+
     theme(axis.text.x = element_blank(),
           axis.title.x = element_blank())+
     NULL -> spp_bio_plot
@@ -136,7 +136,7 @@ plot_trait_histogram <- function(spp_rankings = spp_rankings_summary,
     ggplot()+
     geom_errorbar(aes(x = cleanGroup, ymin = n_ind_m_lower_log10 , ymax = n_ind_m_upper_log10), width = 0, linewidth = 0.6)+
     geom_point(aes(x = cleanGroup, y = n_ind_m_median_log10), size = 2) + 
-    scale_y_continuous(name = expression("Abundance (ind. "~m^-2~")"))+
+    scale_y_continuous(name = expression(atop("Abundance","(ind."*m^-2*")")))+
     theme(axis.text.x = element_blank(),
           axis.title.x = element_blank())+
     NULL -> spp_n_plot
@@ -163,8 +163,8 @@ plot_trait_histogram <- function(spp_rankings = spp_rankings_summary,
     ggplot()+
     geom_errorbar(aes(x = cleanGroup, ymin = M_mg_ind_lower_log10, ymax = M_mg_ind_upper_log10), width = 0, linewidth = 0.6)+
     geom_point(aes(x = cleanGroup, y = M_mg_ind_median_log10), size = 2)+
-    scale_y_continuous(name = expression("Body size ( mg "~ind^-1~")"))+
-    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+    scale_y_continuous(name = expression(atop("Body size","("*mg~ind^-1*")")))+
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1, size = 8.5),
           axis.title.x = element_blank())+
     NULL -> spp_M_plot
   
@@ -174,6 +174,6 @@ return(list(trait_hist = grid.arrange(M_boxplot, pb_boxplot, bio_boxplot, ncol =
                                                     2,2,2,2,
                                                     3,3,3,3,
                                                     4,4,4,4,
-                                                    4,4,4,4), byrow = TRUE))))
+                                                    4,4,4,4), byrow = TRUE), vp=viewport(width=0.95, height=1))))
 
 }
