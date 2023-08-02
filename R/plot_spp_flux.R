@@ -23,7 +23,7 @@ plot_spp_flux <- function(ann_spp_flux =
     na.omit %>%
     dplyr::filter(log(flux_mg_m_y_mean) > -10) %>%
     ggplot(aes(x = rank, y = log(flux_mg_m_y_mean), group = site))+
-    geom_line(aes(color = site), size = 2)+
+    geom_line(aes(color = site), linewidth = 2)+
     geom_point(aes(fill = site), shape = 21, size = 2.3, color = 'black') +
     scale_y_continuous(name = expression(log[e]~"Organic matter flux (mg"~m^-2~y^-1*")"),limits = c(-10,NA),
                        expand = c(0.03,0))+

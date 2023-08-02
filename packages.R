@@ -1,19 +1,25 @@
 ## library() calls go here
 ###load packages and functions
+here::here()
+here::i_am("packages.R")
   if(!require("pacman")) install.packages("pacman")
   library(pacman)
   package.list <- c("conflicted", "dotenv", "drake","data.table","gtools","rlist",
                     "RCurl","plyr","tidyverse","furrr", "fnmate", "moments","fuzzySim",
-                    "dflow","rmarkdown","tictoc","chron","lubridate","httr","TTR", 
-                    "grid","gridExtra", "ggridges", "fluxweb", "rmarkdown", "MuMIn","zoib",
+                    "dflow","tictoc","chron","lubridate","httr","TTR",
+                    "grid","gridExtra", "ggridges", "MuMIn", "here",
                     "viridis", "broom","bbmle","ggthemes", "ggeffects", "ggpubr","betareg",
-                    "fluxweb","igraph","ggraph","magick","cowplot","rriskDistributions",
-                    "rstan", "brms", "tidybayes", "parallel", "hillR", "RInSp", "rsample",
+                    "igraph","ggraph","magick","cowplot","rriskDistributions",
+                    "rstan", "brms", "tidybayes", "parallel", "hillR", "RInSp","rsample",
                     "emmeans")
+  # package.list <- c('conflicted', 'dotenv', 'drake', 'abind', 'brms','cowplot',
+  #                   'dplyr', 'egg', 'fnmate', 'furrr', 'ggplot2', 'ggpubr', 'grid', 'gridExtra',
+  #                   'loo', 'lubridate', 'plyr', 'purrr', 'RInSp', 'rlist',
+  #                   'rriskDistributions', 'rstan', 'stringr', 'tibble', 'tidyr', 'vegan',
+  #                   'viridis')
   p_load(char = package.list, install = TRUE, character.only = TRUE)
-  pacman::p_load_gh("jimjunker1/junkR")
-  # library(junkR)
-  # remotes::install_github("jimjunker1/junkR")
+  remotes::install_github("jimjunker1/junkR")
+  library(junkR)
   devtools::install_github("rmcelreath/rethinking")
   conflict_prefer('count', 'dplyr')
   conflict_prefer('mutate', 'dplyr')

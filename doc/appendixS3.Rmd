@@ -1,0 +1,78 @@
+---
+output:
+   word_document:
+      reference_docx: working_docx_template_nonumbers.docx
+      toc: no
+      pandoc_args:
+      - '--lua-filter=scholarly-metadata.lua'
+      # - '--lua-filter=author-info-blocks.lua'
+      - '--filter=pandoc-crossref.exe'
+   pdf_document:
+     keep_tex: true
+   html_document: default
+   pandoc_args:
+      - '--lua-filter=scholarly-metadata.lua'
+      # - '--lua-filter=author-info-blocks.lua'
+      - '--filter=pandoc-crossref.exe'
+header-includes:
+- \usepackage{amsmath}
+- \numberwithin{equation}
+- \usepackage{indentfirst}
+indent: true
+linestretch: 1
+bibliography: refs.bib
+link-citations: no
+link-color: grey
+csl: ecology.csl
+---
+
+```{r import general objects, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+here::i_am("doc/appendixS3.Rmd")
+source("./packages.R")
+
+```
+
+Appendix S3: Supporting information for Junker, J. R., W. F. Cross, J. M. Hood, J. P. Benstead, A. D. Huryn, D. Nelson, J. S. Ólafsson, and G. M. Gíslason, *Environmental warming increases the importance of high-turnover energy channels in stream food webs*. Ecology.
+
+## Appendix S3: 
+
+### Section S1: Trophic basis of production workflow and assumptions 
+
+We estimated organic matter consumption (g m^-2^ y^-1^) for all taxa using the trophic basis of production method [@benke1980; @benke1997]. This method combines empirical estimates of secondary production and diet composition with assumed diet-specific assimilation efficiency, *AE*, and community-level net production efficiency, *NPE*, to calculate consumption of each diet item required to support secondary production of a consumer.
+
+To propagate uncertainty in consumption estimates, we used bootstrapped secondary production estimates calculated through the resampling of replicated surber samples across sampling dates combined with diet composition estimates from a hierarchical Bayesian model and assumed distributions of ecological efficiencies (Figure S1).
+
+The estimation of consumption via the trophic basis of production method requires the measurement of secondary production, $SP_{tot}$, and relative diet composition for all diet categories, $p_j$, where,
+
+$$\sum_{j = 1}^{} p_{j} = 1$$
+
+Many intrinsic and extrinsic factors (e.g., taxonomic identity, size/age, development or reproductive status, habitat, food availability, food quality, stream flow, temperature, etc.) can control the proportion of energy assimilated [@cross2007; @slansky1982; @barlocher1975; @hall2000; @welch1968]. It is intractable to perform experiments under all of the conditions, therefore, we must make assumptions of the efficiency of energy assimilation, $AE$, of food items and the efficiency by which assimilated energy is subsequently directed towards new biomass growth, $NPE$. Food items differ in their quality and the amount of energy organisms can extract from them as they pass through the digestive system leading to varying assimilation efficiency by diet category, $AE_j$. In contrast, the proportion of assimilated energy put into new growth is more fixed and exists within a narrower range, therefore, we assume a constant value for all diet categories, $NPE$. In this work, to properly account for the uncertainty in these values we draw values of $AE_j$ from diet category-specific distributions and from a set distribution for all diet categories for $NPE$.
+
+From these variables, we can calculate consumption of each food category, $C_j$ through the following procedure:
+
+1) Reweight diet category proportions by the assimilation and production efficiency to calculate relative amount to production for each diet category, $relP_{j}$
+
+$$relP_{j} = p_{j} \times AE_{j} \times NPE$$
+
+2) Rescale to relative production attributed to each food category and multiply by production to calculate production attributed to each food category, $SP_{j}$.
+
+$$SP_{j} = \frac{relP_{j}}{\sum_{j} relP_{j}} \times SP_{tot}$$
+
+3) finally, we divide by the gross growth efficiency ($AE_{j} \times NPE$) to calculate consumption of each food category:
+
+$$C_{j} = SP_{j} \div AE_{j} \times NPE$$
+
+We the sum the consumption across all diet categories to estimate the total organic matter consumptive flux to a consumer population. This procedure is repeated $k$ times redrawing from the bootstrapped distribution of secondary production, the posterior distributions of diet proportion estimates, and the assumed distributions of diet category-specific assimilation efficiency, and net production efficiency to create a distribution of organic matter flux estimates to consumer populations. 
+
+\newpage
+
+Appendix S3: Figure S1
+
+```{r TBP workflow, fig.cap="Appendix S3: Figure S1. Graphical depiction of the workflow to estimate consumption fluxes of organic matter to consumers using the trophic basis of production method."}
+knitr::include_graphics(here::here("doc/revision/TBP-supplemental_flat.tif"), rel_path = FALSE)
+```
+
+\newpage
+
+# References

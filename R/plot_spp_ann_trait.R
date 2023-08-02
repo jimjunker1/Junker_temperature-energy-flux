@@ -4,12 +4,14 @@
 #'
 #' @title
 #' @param nameme1
-plot_spp_ann_trait <- function(sppDf = production_summaries[["ann_spp_summary"]]) {
+plot_spp_ann_trait <- function(sppDf = production_summaries[["ann_spp_summary"]],
+                               taxaDf = flux_summaries[['']]) {
 
   sppDf %>%
-    dplyr::mutate(site_id = factor(site_id, levels= stream_order)) %>%
-    ggplot()+
-    geom_point(aes(x = log(M_mg_ind_mean), y = log(pb_y_mean), color = site_id))
+    group_by(taxon_id) %>% 
+    dplyr::mutate(spp_pb_mean = )
+    dplyr::select(pb_y_mean, taxon_id) %>% dplyr::arrange(pb_y_mean) %>% dplyr::mutate(taxon_id = factor(taxon_id, levels = taxon_id)) %>% ggplot()+geom_boxplot(aes(x = taxon_id, y = pb_y_mean))
     
+    return(NULL)
 
 }

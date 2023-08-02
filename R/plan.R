@@ -79,14 +79,15 @@ the_plan <-
   #
   prelim_diet_figures = plot_stream_diets(modeled_diets[["diet_predictions"]]),#figure s1
   #
-  diet_similarity_analysis = plot_diet_similarity(diet_similarity),
+  # diet_similarity_analysis = plot_diet_similarity(diet_similarity),
   #
   annual_spp_flux_fig = plot_spp_flux(flux_summaries[["annual_spp_flux_summary"]], 
                                       environment_data[["stream_temp_labels"]]),
   #
   # evenness_profile_fig = plot_evenness_profile(hill_diversity_analysis),
   #
-  # spp_trait_histograms = plot_trait_histogram(spp_rankings_summary),
+  spp_trait_histograms = plot_trait_histogram(spp_rankings_summary,
+                                              taxonomic_info),
   #
   spp_traitsVtemp = plot_traits_temp(flux_summaries,
                                      production_boots,
@@ -111,6 +112,7 @@ the_plan <-
     #
   random_skew_fig = plot_random_skew(skew_analysis, 
                                      random_rankings),
+  
   # 
   # temperature_skew_fig = plot_skew_temperature(temperature_stats, n_id = 2e3),
   #
@@ -120,25 +122,32 @@ the_plan <-
   # 
   ms_file = target(
     command = {
-      rmarkdown::render(knitr_in("doc/Junker_temp-energy-flux_submission.Rmd"),
+      rmarkdown::render(knitr_in("doc/Junker_temp-energy-flux_submission_Rev1.Rmd"),
                         knit_root_dir = getwd())
-      file_out("doc/Junker_temp-energy-flux_submission.docx")
+      file_out("doc/Junker_temp-energy-flux_submission_Rev1.docx")
     }
   ),
   # 
   appendixS1_file = target(
     command = {
-      rmarkdown::render(knitr_in("doc/Junker_temp-energy-flux_appendixS1.Rmd"),
+      rmarkdown::render(knitr_in("doc/appendixS1.Rmd"),
                         knit_root_dir = getwd())
-      file_out("doc/Junker_temp-energy-flux_appendixS1.docx")
+      file_out("doc/appendixS1.docx")
     }
   ),
   
   appendixS2_file = target(
     command = {
-      rmarkdown::render(knitr_in("doc/Junker_temp-energy-flux_appendixS2.Rmd"),
+      rmarkdown::render(knitr_in("doc/appendixS2.Rmd"),
                         knit_root_dir = getwd())
-      file_out("doc/Junker_temp-energy-flux_appendixS2.docx")
+      file_out("doc/appendixS2.docx")
+    }
+  ),
+  appendixS3_file = target(
+    command = {
+      rmarkdown::render(knitr_in("doc/appendixS3.Rmd"),
+                        knit_root_dir = getwd())
+      file_out("doc/appendixS3.docx")
     }
   ),
   READme_file = target(

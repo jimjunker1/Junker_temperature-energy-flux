@@ -288,38 +288,7 @@ ann_spp_plotList[[1]]$widths -> ann_spp_plotList[[2]]$widths -> ann_spp_plotList
                                                   bottom = textGrob(expression("Relative Organic Matter flux (%)"), 
                                                                                gp = gpar(fontfamily = 'serif')))
  
- return(full_plot)
+ return(list(full_plot = full_plot,
+             namesDf = namesDf))
  
 }
-
-# ann_spp_plotList = purrr::map2(ann_spp_fluxList,list(plotTaxaColors),
-#                                function(x,y){
-#                                  # browser()
-#                                  # alter the dataframe 
-#                                  other_label = x$taxon[grepl("Other",unlist(x$taxon))] %>% as.character %>% unique
-#                                  names(y)[length(y)] <- other_label
-#                                  
-#                                  plotDf = x %>% ungroup %>%
-#                                    dplyr::mutate(taxaGroup = case_when(is.na(taxaGroup) ~ as.character(taxon),
-#                                                                        TRUE ~ taxaGroup),
-#                                                  cleanGroup = case_when(is.na(cleanGroup) ~ as.character(taxon),
-#                                                                         TRUE ~ cleanGroup),
-#                                                  taxon = factor(taxon,
-#                                                                 levels = x %>% ungroup %>%
-#                                                                   dplyr::filter(taxon != other_label) %>%
-#                                                                   dplyr::arrange(rel_flux_mean) %>%
-#                                                                   dplyr::select(taxon) %>% unlist %>% as.character  %>% c(other_label,.)))
-#                                  
-#                                  plotDf %>%
-#                                    ggplot() +
-#                                    geom_col(aes(x = log10(rel_flux_mean*100), y = taxon, fill = taxaGroup), color = 'black')+
-#                                    scale_fill_manual(values = y[names(y) %in% unlist(x$taxaGroup)])+
-#                                    # scale_color_manual(values = .y)+
-#                                    scale_x_reverse(limits = c(2,0), expand = c(0.001,0.001))+
-#                                    scale_y_discrete(position = 'right', breaks = plotDf$taxon, labels = plotDf$cleanGroup)+
-#                                    theme_tufte()+
-#                                    theme(legend.position = 'none',
-#                                          axis.title.y = element_blank(),
-#                                          axis.title.x = element_blank())
-#                                }) %>%
-#   purrr::map(~ggplotGrob(.x))

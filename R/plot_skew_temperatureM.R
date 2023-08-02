@@ -26,7 +26,7 @@ plot_skew_temperatureM <- function(lorenz_analysis, spp_rankings_summary,
     geom_abline(color = "black")+
     geom_abline(intercept = 1, slope = -1, color = "black", linetype = "dotted")+
     geom_line(aes(group = boot_id), color = "grey", alpha = 0.5) +
-    geom_line(data = spp_rankings_summary[["M_spp_rank"]], aes(x = rel_spp, y = rel_flux, color = site), size = 1.5) +
+    geom_line(data = spp_rankings_summary[["M_spp_rank"]], aes(x = rel_spp, y = rel_flux, color = site), linewidth = 1.5) +
     scale_x_continuous(name = "Cumulative species", limits = c(0,1), expand = c(0,0.03))+
     scale_y_continuous(name = "Cumulative flux", limits = c(0,1), expand = c(0,0.03),breaks = c(0,0.5,1))+
     scale_colour_manual(values = ocecolors[['temperature']][oce_temp_pos], labels = stream_temp_labels)+

@@ -102,7 +102,7 @@ model_diet_props <- function(full_diet_df = full_diet_df,
                     control = list(adapt_delta = 0.99),
                     sample_prior = "yes",
                     file = "./data/diet-dir_brms_m2",
-                    rerun = 'on-change',
+                    rerun = 'never',
                     backend = 'cmdstanr')
   
 stan_diet_code =make_stancode(formula = multilevel_model_formula, family = dirichlet(), prior = dir_prior, data = diet_df, save_model = './data/diet_hier_dir_model.stan')

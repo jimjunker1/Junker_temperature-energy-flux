@@ -1,0 +1,82 @@
+---
+output:
+   word_document:
+      reference_docx: working_docx_template_nonumbers.docx
+      toc: no
+      pandoc_args:
+      - '--lua-filter=scholarly-metadata.lua'
+      # - '--lua-filter=author-info-blocks.lua'
+      - '--filter=pandoc-crossref.exe'
+   pdf_document:
+     keep_tex: true
+   html_document: default
+   pandoc_args:
+      - '--lua-filter=scholarly-metadata.lua'
+      # - '--lua-filter=author-info-blocks.lua'
+      - '--filter=pandoc-crossref.exe'
+header-includes:
+- \usepackage{amsmath}
+- \numberwithin{equation}
+- \usepackage{indentfirst}
+indent: true
+linestretch: 1
+bibliography: refs.bib
+link-citations: no
+link-color: grey
+csl: ecology.csl
+---
+
+```{r import general objects, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+here::i_am('doc/appendixS1.Rmd')
+source("./packages.R")
+
+```
+
+Appendix S1: Supporting information for Junker, J. R., W. F. Cross, J. M. Hood, J. P. Benstead, A. D. Huryn, D. Nelson, J. S. Ólafsson, and G. M. Gíslason, *Environmental warming increases the importance of high-turnover energy channels in stream food webs*. Ecology.
+
+## Appendix S1
+
+### Section S1: Diet analysis
+
+Macroinvertebrate diets were quantified for dominant taxa in each stream. We focused on numerically abundant taxa and/or taxa with relatively
+high annual production. A minimum of five individuals were selected from samples, and, when possible included individuals of different size classes to account for ontogenetic
+shifts in diet. We included individuals from different seasons to capture concurrent ontogenetic and seasonal changes. For small-bodied taxa, we combined multiple individuals (*n*
+= 3--5) to ensure samples contained enough material for quantification. We used methods outlined in Rosi-Marshall [-@rosi-marshall2016] to remove gut tracts and prepare gut contents for quantification. Briefly, we removed the foregut from each individual or collection of individuals and sonicated contents in water for 30 seconds. Gut content slurries were filtered onto gridded nitrocellulose membrane filters (Metricel GN-6, 25 mm, 0.45 $\mu$m pore size; Gelman Sciences, Ann Arbor, MI, USA), dried at 60 $^\circ$C for 15 min, placed on a microscope slide, cleared with Type B immersion oil, and covered with a cover slip. We took 5--10 random photographs under 200--400x magnification, depending on the density of particles, using a digital camera mounted on a compound microscope. From these photographs we identified all particles within each field and measured the relative area of particles using image analysis software [@schindelin2012]. We classified particles into six categories: diatoms, green and filamentous algae, cyanobacteria, amorphous detritus, vascular and non-vascular plants (e.g., bryophytes), and animal material and then calculated the proportion of each food category in the gut by dividing their summed area by the total area of all particles. Gut contents of many predators were empty or contained unidentifiable, macerated prey. For these taxa, we assumed 100% animal material.
+
+To estimate variability in diet compositions and to impute missing values for non-dominant, yet present, taxa, we modeled the diet proportions within each stream using a hierarchical multivariate model [@fordyce2011; @coblentz2017]. Here, the diet proportions of a consumer population, *i*, in stream, *j*, is estimated as:
+
+$$\overrightarrow{p_{ij}} \sim Dirichlet(\overrightarrow{q_i} \times  \alpha) $$ 
+
+where, $\overrightarrow{p_{ij}}$, is
+a vector of consumer diet proportions, $\overrightarrow{q_{ij}}$ is a vector of the population $i$'s diet proportions in stream $j$. We used informed priors for the $\overrightarrow{q_i}$ vector of resource categories based on previous research that has determined diets are dominated by diatoms and green algae [@nelson2020; @ogorman2012]. The resource-specific $\overrightarrow{q_i}$ priors were as follows:  
+
+$$q_{animal} \sim Normal(0, 0.2)$$ 
+
+$$q_{cyanobacteria} \sim Normal(0, 0.2)$$ 
+
+$$q_{diatom} \sim Normal(1, 2)$$ 
+
+$$q_{filamentous} \sim Normal(0, 3)$$ 
+
+$$q_{green algae} \sim Normal(0, 3)$$ 
+
+$$q_{plant material} \sim Normal(0, 3)$$ 
+
+For $\alpha$, the parameter the describes the concentration (described as $\phi$ in the Stan model), we applied default priors:
+
+$$\alpha \sim Gamma(0.01, 0.01)$$ 
+
+Models were fit in Stan with the 'brms' package in R [@burkner2017]. For non-dominant taxa, diet proportions were imputed from the hierarchical model by resampling from posterior distributions. Importantly, this process allowed to maintain the hierarchical structure of the data when imputing missing values.
+
+From modeled diet compositions, we estimated trophic redundancy within and across stream food webs by calculating diet overlap with the 'overlap()' function in 'RInSp' package in R [@zaccarelli2013]. Overlap was calculated across all taxa within a stream based on modeled diet contributions from each taxon. To calculate overlap among streams we sampled 1000 estimates of the stream-level diet proportions for each stream and calculated overlap for each. 
+
+```{r diet figure, dpi = 450, fig.cap="Appendix S1: Figure S1. Posterior distributions of site-level diet proportions for consumer communities across the temperature gradient."}
+ 
+ drake::loadd(prelim_diet_figures)
+ prelim_diet_figures
+ 
+```
+ 
+# References
+ 

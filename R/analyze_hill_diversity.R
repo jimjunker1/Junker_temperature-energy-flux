@@ -18,7 +18,7 @@ analyze_hill_diversity <- function(ann_spp_flux_summary = flux_summaries[["annua
     x1 <- x %>% pivot_longer(-q.order, names_to = 'site', values_to = 'evenness') %>%
       dplyr::mutate(site = factor(site, levels = names(stream_order_list)))
     ggplot(x1, aes(q.order, evenness))+
-      geom_line(aes(color = site, group = site), size = 1.1)+
+      geom_line(aes(color = site, group = site), linewidth = 1.1)+
       theme_tufte(ticks = TRUE)+
       geom_rangeframe(sides = "lb")+
       theme(legend.position = c(1,1),
