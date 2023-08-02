@@ -130,17 +130,24 @@ the_plan <-
   # 
   appendixS1_file = target(
     command = {
-      rmarkdown::render(knitr_in("doc/Junker_temp-energy-flux_appendixS1.Rmd"),
+      rmarkdown::render(knitr_in("doc/appendixS1.Rmd"),
                         knit_root_dir = getwd())
-      file_out("doc/Junker_temp-energy-flux_appendixS1.docx")
+      file_out("doc/appendixS1.docx")
     }
   ),
   
   appendixS2_file = target(
     command = {
-      rmarkdown::render(knitr_in("doc/Junker_temp-energy-flux_appendixS2.Rmd"),
+      rmarkdown::render(knitr_in("doc/appendixS2.Rmd"),
                         knit_root_dir = getwd())
-      file_out("doc/Junker_temp-energy-flux_appendixS2.docx")
+      file_out("doc/appendixS2.docx")
+    }
+  ),
+  appendixS3_file = target(
+    command = {
+      rmarkdown::render(knitr_in("doc/appendixS3.Rmd"),
+                        knit_root_dir = getwd())
+      file_out("doc/appendixS3.docx")
     }
   ),
   READme_file = target(

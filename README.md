@@ -1,7 +1,7 @@
 Environmental warming increases the importance of high-turnover energy
 channels in stream food webs
 ================
-2023-06-18
+2023-08-01
 
 This document was created from `README.Rmd` do not edit it directly.
 
@@ -33,6 +33,10 @@ Bayesian models and random simulations, can take some time to rerun and
 therefore it is recommended to load the object rather than rerun the
 analysis from scratch unless necessary.
 
+All manuscript files and appendices are created from corresponding files
+in the `doc/`. Appendices were converted to .pdf files from the .docx
+file outputs for uploads.
+
 ## Reproducibility
 
 The system configuration of the last rerun was:
@@ -47,7 +51,7 @@ Reproducibility receipt
 Sys.time()
 ```
 
-    ## [1] "2023-06-18 14:26:27 CDT"
+    ## [1] "2023-08-01 19:20:19 CDT"
 
 ``` r
 ## repository
@@ -61,8 +65,8 @@ capture.output(if(requireNamespace('git2r', quietly = TRUE)) {
 })[-1]# [-1] to remove local file structure
 ```
 
-    ## [1] "Remote:   clean-project @ clean-project (git@github.com:jimjunker1/Junker_temperature-energy-flux.git)"    
-    ## [2] "Head:     [3667b80] 2023-06-06: first round of changes to revision #1 with additional discussion paragraph"
+    ## [1] "Remote:   clean-project @ clean-project (git@github.com:jimjunker1/Junker_temperature-energy-flux.git)"                
+    ## [2] "Head:     [4516b81] 2023-08-01: updating appendix names before deleting old intermediate files (e.g., .md, .tex, etc.)"
 
 ``` r
 ## session info

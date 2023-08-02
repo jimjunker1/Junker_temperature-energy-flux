@@ -8,7 +8,7 @@ author:
   - name: Wyatt F. Cross
     institute: msu
   - name: James M. Hood
-    institute: [osu, ]
+    institute: [osu, tdai]
   - name: Jonathan P. Benstead
     institute: bama
   - name: Alexander D. Huryn
@@ -359,7 +359,7 @@ interval [PI]: 0.24-0.36), filamentous and green algae = 0.30 (95% PI:
 PI: 0.56-0.84\; @welch1968; @cross2007; @cross2011; @benke1980;
 @benke1997]. Variability in *NPE* was incorporated by resampling values
 from an assumed beta distribution with median *NPE* = 0.45 (95% PI =
-0.40-0.50). Beta distributions were fit in R [@rcoreteam2022] using the
+0.40-0.50). Further details can be found in supporting materials (Appendix S3: Section S1: Trophic basis of production workflow and assumptions). Beta distributions were fit in R [@rcoreteam2022] using the
 'get.beta.par()' function within the *rriskDistributions* package
 [@belgorodski2017].
 
@@ -888,7 +888,7 @@ functional traits and the relative distribution of material fluxes
 across a natural stream temperature gradient. Higher temperatures were
 associated with increased total flux through the food web, as well as
 reductions in average population body size and increases in population
-biomass turnover. Further, biomass turnover rate---but not body
+biomass turnover. Further, biomass turnover rate---but less so body
 size---was increasingly important for structuring OM fluxes at warmer
 temperatures. Our results support the idea that warming may reduce
 organism size and also 'speed up' ecosystem dynamics in both an absolute

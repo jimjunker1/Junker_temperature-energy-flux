@@ -604,7 +604,7 @@ padding-top: 0px;
 <h1 id="environmental-warming-increases-the-importance-of-high-turnover-energy-channels-in-stream-food-webs">Environmental
 warming increases the importance of high-turnover energy channels in
 stream food webs</h1>
-<p>2023-06-18</p>
+<p>2023-08-01</p>
 <p>This document was created from <code>README.Rmd</code> do not edit it
 directly.</p>
 <p>This repository contains the code and document files for Junker, J.
@@ -635,6 +635,9 @@ followed by <code>drake::make()</code>. Some of the objects,
 particularly the Bayesian models and random simulations, can take some
 time to rerun and therefore it is recommended to load the object rather
 than rerun the analysis from scratch unless necessary.</p>
+<p>All manuscript files and appendices are created from corresponding
+files in the <code>doc/</code>. Appendices were converted to .pdf files
+from the .docx file outputs for uploads.</p>
 <h2 id="reproducibility">Reproducibility</h2>
 <p>The system configuration of the last rerun was:</p>
 <details>
@@ -644,7 +647,7 @@ Reproducibility receipt
 
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="do">## datetime</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">Sys.time</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;2023-06-18 14:26:27 CDT&quot;</code></pre>
+<pre><code>## [1] &quot;2023-08-01 19:20:19 CDT&quot;</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="do">## repository</span></span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">capture.output</span>(<span class="cf">if</span>(<span class="fu">requireNamespace</span>(<span class="st">&#39;git2r&#39;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  git2r<span class="sc">::</span><span class="fu">repository</span>()</span>
@@ -654,8 +657,8 @@ Reproducibility receipt
 <span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    <span class="fu">system2</span>(<span class="st">&quot;git&quot;</span>, <span class="at">args =</span> <span class="fu">c</span>(<span class="st">&quot;remote&quot;</span>, <span class="st">&quot;-v&quot;</span>), <span class="at">stdout =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>  )</span>
 <span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>})[<span class="sc">-</span><span class="dv">1</span>]<span class="co"># [-1] to remove local file structure</span></span></code></pre></div>
-<pre><code>## [1] &quot;Remote:   clean-project @ clean-project (git@github.com:jimjunker1/Junker_temperature-energy-flux.git)&quot;    
-## [2] &quot;Head:     [3667b80] 2023-06-06: first round of changes to revision #1 with additional discussion paragraph&quot;</code></pre>
+<pre><code>## [1] &quot;Remote:   clean-project @ clean-project (git@github.com:jimjunker1/Junker_temperature-energy-flux.git)&quot;                
+## [2] &quot;Head:     [4516b81] 2023-08-01: updating appendix names before deleting old intermediate files (e.g., .md, .tex, etc.)&quot;</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="do">## session info</span></span>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.2.3 (2023-03-15 ucrt)

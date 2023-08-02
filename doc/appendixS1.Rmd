@@ -28,11 +28,12 @@ csl: ecology.csl
 
 ```{r import general objects, echo=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+here::i_am('doc/appendixS1.Rmd')
 source("./packages.R")
 
 ```
 
-Appendix S1: Supporting information for Junker, J. R., W. F. Cross, J. M. Hood, J. P. Benstead, A. D. Huryn, D. Nelson, J. S. Ólafsson, and G. M. Gíslason, *Environmental warming increases the importance of high-turnover energy channels in stream food webs*.
+Appendix S1: Supporting information for Junker, J. R., W. F. Cross, J. M. Hood, J. P. Benstead, A. D. Huryn, D. Nelson, J. S. Ólafsson, and G. M. Gíslason, *Environmental warming increases the importance of high-turnover energy channels in stream food webs*. Ecology.
 
 ## Appendix S1
 
@@ -45,10 +46,10 @@ shifts in diet. We included individuals from different seasons to capture concur
 
 To estimate variability in diet compositions and to impute missing values for non-dominant, yet present, taxa, we modeled the diet proportions within each stream using a hierarchical multivariate model [@fordyce2011; @coblentz2017]. Here, the diet proportions of a consumer population, *i*, in stream, *j*, is estimated as:
 
-$$\overrightarrow{p_ij} \sim Dirichlet(\overrightarrow{q_i} \times  \alpha) $$ 
+$$\overrightarrow{p_{ij}} \sim Dirichlet(\overrightarrow{q_i} \times  \alpha) $$ 
 
-where, $\overrightarrow{p_ij}$, is
-a vector of consumer diet proportions, $\overrightarrow{q_ij}$ is a vector of the population $i$'s diet proportions in stream $j$. We used informed priors for the $\overrightarrow{q_i}$ vector of resource categories based on previous research that has determined diets are dominated by diatoms and green algae [@nelson2020; @ogorman2012]. The resource-specific $\overrightarrow{q_i}$ priors were as follows:  
+where, $\overrightarrow{p_{ij}}$, is
+a vector of consumer diet proportions, $\overrightarrow{q_{ij}}$ is a vector of the population $i$'s diet proportions in stream $j$. We used informed priors for the $\overrightarrow{q_i}$ vector of resource categories based on previous research that has determined diets are dominated by diatoms and green algae [@nelson2020; @ogorman2012]. The resource-specific $\overrightarrow{q_i}$ priors were as follows:  
 
 $$q_{animal} \sim Normal(0, 0.2)$$ 
 

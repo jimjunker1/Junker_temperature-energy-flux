@@ -30,14 +30,14 @@ nocite: |
 
 ```{r import general objects, echo=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
-here::i_am('doc/Junker_temp-energy-flux_appendixS2.Rmd')
+here::i_am('doc/appendixS2.Rmd')
 source(here::here("packages.R"))
 
 ```
 
-Appendix S2: Supporting information for Junker, J. R., W. F. Cross, J. M. Hood, J. P. Benstead, A. D. Huryn, D. Nelson, J. S. Ólafsson, and G. M. Gíslason, *Environmental warming increases the importance of high-turnover energy channels in stream food webs*.
+Appendix S2: Supporting information for Junker, J. R., W. F. Cross, J. M. Hood, J. P. Benstead, A. D. Huryn, D. Nelson, J. S. Ólafsson, and G. M. Gíslason, *Environmental warming increases the importance of high-turnover energy channels in stream food webs*. Ecology.
 
-## Appendix S2
+## Appendix S2: 
 
 Appendix S2: Figure S1
 
@@ -102,3 +102,5 @@ drake::loadd(random_skew_fig)
 grid.arrange(random_skew_fig[["M_perc_plot"]], random_skew_fig[["pb_perc_plot"]], ncol = 1, left = text_grob(""))
 
 ```
+
+# References
