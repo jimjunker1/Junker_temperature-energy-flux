@@ -3,7 +3,7 @@ title: "Environmental warming increases the importance of high-turnover energy c
 author:
   - James R. Junker:
       email: jrjunker@mtu.edu
-      institute: [msu, glrc]
+      institute: [msu, unt]
       correspondence: true
   - name: Wyatt F. Cross
     institute: msu
@@ -21,7 +21,7 @@ author:
     institute: reyk
 institute:
   - msu: Department of Ecology, Montana State University, Bozeman, MT 59717, USA
-  - glrc: Current `address:` Great Lakes Research Center, Michigan Technological University, Houghton, MI 49931, USA
+  - unt: Current `address:` Department of Biological Sciences, University of North Texas. Denton, TX  76203, USA
   - osu: The Aquatic Ecology Laboratory, Department of Evolution, Ecology, and Organismal Biology, The Ohio State University, Columbus, OH 43212, USA
   - tdai: Translational Data Analytics Institute, The Ohio State University, Columbus, OH 43212, USA
   - bama: Department of Biological Sciences, University of Alabama, Tuscaloosa, AL  35487, USA
@@ -84,10 +84,8 @@ Manuscript details:
 -   Appendices: 3
 
 Open Research Statement: All data and code used in this work are
-publicly available at the following link:
-<https://github.com/jimjunker1/Junker_temperature-energy-flux>. Upon
-acceptance, all data and code will be submitted to relevant repositories
-(e.g., Dryad, Zenodo) for archival.
+publicly available and archived at the following link:
+<https://zenodo.org/doi/10.5281/zenodo.10455904>.
 
 Key words: climate change; energy flux; environmental filtering; food webs; species traits; temperature
 
