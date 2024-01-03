@@ -68,11 +68,13 @@ the_plan <-
   # trait interrelationships
   trait_stats = analyze_trait_stats(skew_analysis),
   # temperature trait relationships
-  temperature_stats = analyze_temp_stats(production_boots[['ann_comm_boots']],
-                                         production_boots[['ann_spp_boots']],
-                                         gini_analysis[['stream_gini_df']],
-                                         diet_similarity[['among_modeled_overlap']],
-                                         skew_analysis, n_boot = 1e3),
+  temperature_stats = analyze_temp_stats(ann_comm_boots = production_boots[["ann_comm_boots"]],
+                                         ann_spp_boots = production_boots[["ann_spp_boots"]],
+                                         stream_gini_df = gini_analysis[["stream_gini_df"]],
+                                         diet_similarity_mat = diet_similarity[['among_modeled_overlap']],
+                                         skew_analysis = skew_analysis,
+                                         ann_comm_flux = flux_summaries[["flux_boots_df"]],
+                                         n_boot = 1e3),
   conflicted:::conflicts_register(),
   
   ### figures
@@ -122,9 +124,9 @@ the_plan <-
   # 
   ms_file = target(
     command = {
-      rmarkdown::render(knitr_in("doc/Junker_temp-energy-flux_submission_Rev1.Rmd"),
+      rmarkdown::render(knitr_in("doc/Junker_temp-energy-flux_submission_Rev2.Rmd"),
                         knit_root_dir = getwd())
-      file_out("doc/Junker_temp-energy-flux_submission_Rev1.docx")
+      file_out("doc/Junker_temp-energy-flux_submission_Rev2.docx")
     }
   ),
   # 

@@ -5,10 +5,10 @@ here::i_am("packages.R")
   if(!require("pacman")) install.packages("pacman")
   library(pacman)
   package.list <- c("conflicted", "dotenv", "drake","data.table","gtools","rlist",
-                    "RCurl","plyr","tidyverse","furrr", "fnmate", "moments","fuzzySim",
+                    "RCurl","plyr","ggpubr","tidyverse","furrr", "fnmate", "moments","fuzzySim",
                     "dflow","tictoc","chron","lubridate","httr","TTR",
                     "grid","gridExtra", "ggridges", "MuMIn", "here",
-                    "viridis", "broom","bbmle","ggthemes", "ggeffects", "ggpubr","betareg",
+                    "viridis", "broom","bbmle","ggthemes", "ggeffects", "betareg",
                     "igraph","ggraph","magick","cowplot","rriskDistributions",
                     "rstan", "brms", "tidybayes", "parallel", "hillR", "RInSp","rsample",
                     "emmeans")
@@ -17,21 +17,21 @@ here::i_am("packages.R")
   #                   'loo', 'lubridate', 'plyr', 'purrr', 'RInSp', 'rlist',
   #                   'rriskDistributions', 'rstan', 'stringr', 'tibble', 'tidyr', 'vegan',
   #                   'viridis')
-  p_load(char = package.list, install = TRUE, character.only = TRUE)
-  remotes::install_github("jimjunker1/junkR")
+  p_load(char = package.list, install = FALSE, character.only = TRUE)
+  remotes::install_github("jimjunker1/junkR", upgrade = "never")
   library(junkR)
-  devtools::install_github("rmcelreath/rethinking")
+  devtools::install_github("rmcelreath/rethinking", upgrade = "never")
   conflict_prefer('count', 'dplyr')
   conflict_prefer('mutate', 'dplyr')
+  conflict_prefer('group_by', 'dplyr')
   conflict_prefer('traceplot', 'coda')
-  remotes::install_github("milesmcbain/dflow")
-  # remotes::install_github("MilesMcBain/breakerofchains")
+  remotes::install_github("milesmcbain/dflow", upgrade = "never")
   library(dflow)
   rm("package.list" )
   
   source("https://gist.githubusercontent.com/jimjunker1/0ec857c43b1e3a781363c1b1ea7e12ad/raw/4dd2d1078a00500963822d29b2e58ebf39831fb3/geom_flat_violin.R")
   cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
-  # load("./object_files/ocecolors.rda")
+  load(here::here("data/ocecolors.rda"))
   overkt_to_C <- function(a){1/(a*(8.61733*10^-5)) - 273.15}
   theme_mod = function(){theme_bw() %+replace% theme(panel.grid = element_blank())}
   theme_black = function() {theme_bw() %+replace% theme(panel.background = element_rect(fill = 'transparent', colour = NA),panel.grid = element_blank(), axis.ticks = element_line(color = 'white'),

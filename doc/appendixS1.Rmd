@@ -33,7 +33,7 @@ source("./packages.R")
 
 ```
 
-Appendix S1: Supporting information for Junker, J. R., W. F. Cross, J. M. Hood, J. P. Benstead, A. D. Huryn, D. Nelson, J. S. Ólafsson, and G. M. Gíslason, *Environmental warming increases the importance of high-turnover energy channels in stream food webs*. Ecology.
+Appendix S1: Supporting information for James R. Junker, Wyatt F. Cross, James M. Hood, Jonathan P. Benstead, Alexander D. Huryn, Daniel Nelson, Jón S. Ólafsson, and Gísli M. Gíslason, *Environmental warming increases the importance of high-turnover energy channels in stream food webs*. Ecology.
 
 ## Appendix S1
 

@@ -1734,7 +1734,7 @@
       "RemoteRepo": "junkR",
       "RemoteUsername": "jimjunker1",
       "RemoteRef": "HEAD",
-      "RemoteSha": "136f1d7234828a1a35e15942e10fb892645afe3a",
+      "RemoteSha": "040ae934eb88f8f34dfac88f7eedc8c85376b356",
       "Requirements": [
         "R",
         "RefManageR",
@@ -1744,10 +1744,13 @@
         "httr",
         "methods",
         "purrr",
+        "rlang",
         "rvest",
+        "stringr",
+        "utils",
         "xml2"
       ],
-      "Hash": "44588ce2663bf53c7abf348b057d803a"
+      "Hash": "d402c6e899a2e9752b0947a53dbe6991"
     },
     "knitr": {
       "Package": "knitr",
@@ -2577,14 +2580,14 @@
     },
     "rethinking": {
       "Package": "rethinking",
-      "Version": "2.31",
+      "Version": "2.40",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "rethinking",
       "RemoteUsername": "rmcelreath",
       "RemoteRef": "HEAD",
-      "RemoteSha": "2f01a9c5dac4bc6e9a6f95eec7cae268200a8181",
+      "RemoteSha": "f3ac8de0b4bcfabccc67ed033fb81d1873ec755e",
       "Requirements": [
         "MASS",
         "R",
@@ -2595,11 +2598,11 @@
         "methods",
         "mvtnorm",
         "parallel",
-        "rstan",
+        "posterior",
         "shape",
         "stats"
       ],
-      "Hash": "d0e192720049e3d7a90017c6cb3780d3"
+      "Hash": "9caed73679267a4b22d50a3dc49f219a"
     },
     "rlang": {
       "Package": "rlang",

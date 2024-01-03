@@ -14,15 +14,31 @@ plot_traits_temp <- function(flux_summaries,
     rownames_to_column('site_id') %>% setNames(., c('site_id', 'tempC')) %>%
     dplyr::mutate(tempC = as.numeric(tempC))
   
+  new_data = data.frame(tempC = seq((min(stream_temps$tempC)-0.5),(max(stream_temps$tempC)+0.5), length.out = 100)) %>%
+    dplyr::mutate(tempC_stand = tempC - mean(tempC, na.rm = TRUE))
+  
   ann_comm_sum = flux_summaries[['annual_comm_flux_summary']] %>%
     dplyr::rename(site_id = 'site') %>%
     dplyr::mutate(across(where(is.numeric), ~.x/1000)) %>%
     left_join(stream_temps, by = 'site_id') %>%
     dplyr::mutate(site_id = factor(site_id, levels = stream_order))
   
+# add in posterior draws
+  flux_temp_boots = temperature_stats[["flux_temp_boots"]]
   
+  flux_temp_pred = flux_temp_boots %>%
+    junkR::named_group_split(n_rep) %>%
+    purrr::map(~.x %>% flatten %>% pluck('model')) %>% 
+    purrr::map(~data.frame(tempC = new_data$tempC,
+                           flux_mg_m_y = exp(predict(.x, newdata = new_data)))) %>%
+    bind_rows(.id = 'n_rep') %>%
+    dplyr::filter(n_rep %in% sample(unique(n_rep), 400, replace = FALSE))
+  
+    
   ann_comm_sum %>%
     ggplot() +
+    geom_line(data = flux_temp_pred, aes(x = tempC, y = log(flux_mg_m_y), group = n_rep),
+              color = 'lightgray', alpha = 0.5, inherit.aes = FALSE)+
     geom_errorbar(aes(x = tempC, ymin = log(flux_mg_m_y_quant2.5), ymax = log(flux_mg_m_y_quant97.5), color = site_id), width = 0, linewidth = 1) +
     geom_errorbar(aes(x = tempC, ymin = log(flux_mg_m_y_quant25), ymax = log(flux_mg_m_y_quant75), color = site_id), width = 0, linewidth = 2) +
     geom_point(aes(x = tempC, y = log(flux_mg_m_y_mean), fill = site_id), shape =21, size = 2)+
@@ -38,9 +54,6 @@ plot_traits_temp <- function(flux_summaries,
           legend.title = element_blank(),
           legend.justification = c(1,0), axis.title.x = element_blank()) -> ann_comm_flux_plot
     
-  
-  new_data = data.frame(tempC = seq((min(stream_temps$tempC)-0.5),(max(stream_temps$tempC)+0.5), length.out = 100)) %>%
-    dplyr::mutate(tempC_stand = tempC - mean(tempC, na.rm = TRUE))
   
   ann_spp_summ = temperature_stats[["sppBootsDf"]] %>%
     group_by(site_id) %>%

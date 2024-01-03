@@ -33,7 +33,7 @@ source("./packages.R")
 
 ```
 
-Appendix S3: Supporting information for Junker, J. R., W. F. Cross, J. M. Hood, J. P. Benstead, A. D. Huryn, D. Nelson, J. S. Ólafsson, and G. M. Gíslason, *Environmental warming increases the importance of high-turnover energy channels in stream food webs*. Ecology.
+Appendix S3: Supporting information for James R. Junker, Wyatt F. Cross, James M. Hood, Jonathan P. Benstead, Alexander D. Huryn, Daniel Nelson, Jón S. Ólafsson, and Gísli M. Gíslason, *Environmental warming increases the importance of high-turnover energy channels in stream food webs*. Ecology.
 
 ## Appendix S3: 
 
@@ -69,7 +69,7 @@ We the sum the consumption across all diet categories to estimate the total orga
 
 Appendix S3: Figure S1
 
-```{r TBP workflow, fig.cap="Appendix S3: Figure S1. Graphical depiction of the workflow to estimate consumption fluxes of organic matter to consumers using the trophic basis of production method."}
+```{r TBP workflow, fig.cap="Appendix S3: Figure S1. Graphical depiction of the workflow to estimate consumption fluxes of organic matter to consumers using the trophic basis of production method. Note: In the example, the Allen curve method is depicted in the panel describing estimation of secondary production compared to the Instantaneous Growth method used in the manuscript. This was chosen for ease of graphical depiction."}
 knitr::include_graphics(here::here("doc/revision/TBP-supplemental_flat.tif"), rel_path = FALSE)
 ```
 
