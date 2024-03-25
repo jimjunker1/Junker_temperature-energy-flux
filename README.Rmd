@@ -10,11 +10,13 @@ source("./packages.R")
 
 This document was created from `README.Rmd` do not edit it directly. 
 
-This repository contains the code and document files for Junker, J. R., W. F. Cross, J. M. Hood, J. P. Benstead, A. D. Huryn, D. Nelson, J. S. Ólafsson, and G. M. Gíslason, "*Environmental warming increases the importance of high-turnover energy channels in stream food webs*", submitted for publication as an article in **Ecology**. 
+This repository contains the code and document files for Junker, J. R., W. F. Cross, J. M. Hood, J. P. Benstead, A. D. Huryn, D. Nelson, J. S. Ólafsson, and G. M. Gíslason, "*Environmental warming increases the importance of high-turnover energy channels in stream food webs*", accepted for publication as an article in **Ecology**. The archived Zenodo repository can be found here:
+
+[![DOI](https://zenodo.org/badge/581618244.svg)](https://zenodo.org/doi/10.5281/zenodo.10455904)
 
 Package versions dependencies are documented with the `renv` package version `r gsub("’","", packageVersion('renv'))` and explicitly with the `renv.lock` file. The `renv` auto-loader has been deactivated by removing the .Rprofile file. To activate the `renv` environment with the appropriate packages, use `renv::restore()` and choose `yes` when asked to initiate the project. See `renv` documentation for more information  here [https://rstudio.github.io/renv/articles/collaborating.html].
 
-The full workflow to recreate the analyses and manuscript are contained here and employ the `drake`[https://docs.ropensci.org/drake/]\* package to recreate the workflow. The workflow is outlined in the `plan.R` script and the subsequent scripts within the `R/` folder. The most updated version of all of the model outputs and objects are cached in a hidden `.drake/` folder. This allows these objects to be called without the need to completely recreate them. The workflow and status of each drake "target" can be viewed with `drake::vis_drake_graph()`. The entire workflow can be rerun from scratch by running `drake::clean()` followed by `drake::make()`. Some of the objects, particularly the Bayesian models and random simulations, can take some time to rerun and therefore it is recommended to load the object rather than rerun the analysis from scratch unless necessary.
+The full workflow to recreate the analyses and manuscript are contained here and employ the `drake`[https://docs.ropensci.org/drake/] package to recreate the workflow. The workflow is outlined in the `plan.R` script and the subsequent scripts within the `R/` folder. The most updated version of all of the model outputs and objects are cached in a hidden `.drake/` folder. This allows these objects to be called without the need to completely recreate them. The workflow and status of each drake "target" can be viewed with `drake::vis_drake_graph()`. The entire workflow can be rerun from scratch by running `drake::clean()` followed by `drake::make()`. Some of the objects, particularly the Bayesian models and random simulations, can take some time to rerun and therefore it is recommended to load the object rather than rerun the analysis from scratch unless necessary.
 
 All manuscript files and appendices are created from corresponding files in the `doc/`. Appendices were converted to .pdf files from the .docx file outputs for uploads. 
 
@@ -43,6 +45,3 @@ sessionInfo()
 ```
 
 </details>
-
-\* The `drake` package has been superseded by the `targets` package. This repository may be transferred to that workflow and/or accompanied with a Docker container to ensure backward compatibility. Currently, `renv` is used to ensure reproducibility for the immediate future.
-
