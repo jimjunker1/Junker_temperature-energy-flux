@@ -2,7 +2,7 @@
 title: "Environmental warming increases the importance of high-turnover energy channels in stream food webs"
 author:
   - James R. Junker:
-      email: jrjunker@mtu.edu
+      email: james.junker@unt.edu
       institute: [msu, unt]
       correspondence: true
   - name: Wyatt F. Cross
@@ -21,7 +21,7 @@ author:
     institute: reyk
 institute:
   - msu: Department of Ecology, Montana State University, Bozeman, MT 59717, USA
-  - unt: Current `address:` Department of Biological Sciences, University of North Texas. Denton, TX  76203, USA
+  - unt: Current `address:` Department of Biological Sciences, University of North Texas, Denton, TX  76203, USA
   - osu: The Aquatic Ecology Laboratory, Department of Evolution, Ecology, and Organismal Biology, The Ohio State University, Columbus, OH 43212, USA
   - tdai: Translational Data Analytics Institute, The Ohio State University, Columbus, OH 43212, USA
   - bama: Department of Biological Sciences, University of Alabama, Tuscaloosa, AL  35487, USA
@@ -876,7 +876,7 @@ life-history traits [e.g., multi-voltinism\: @zeuss2017; @nelson2020b;
 short lifespan\: @munch2009; high growth rate\: @donhauser2020;
 @stoks2014], especially at relatively high temperatures.
 
-## Warming and resoure interactions
+## Warming and resource interactions
 
 The ecological and evolutionary effects of warming are likely mediated by their interaction with food resource availability and dynamics [@mcmeans2015; @cross2015]. In high-latitude ecosystems where light plays a dominant role in driving resource dynamics, consumer energy demands may be affected by resources more than by temperature *per se* [@junker2020; @huryn2019]. This may be particularly apparent in open-canopied streams where primary production is highly synchronous with seasonal light regimes. Under such conditions, simplified resource dynamics may create strong selection for high growth and turnover rates (and associated *r*-selected life-history traits, such as small body size) because consumers cannot compensate for periods of resource scarcity through diet shifts [e.g., consumptive "portfolio" effects, @gutgesell2022a]. Future warming may exaggerate these effects because ectotherms may experience increased temperature-driven energy demands that are increasingly decoupled from resource availability [@huryn2019]. Acknowledging these dynamics may lead to a more general framework for understanding different responses to warming across organisms [@greyson-gaito2023], latitudes [@gibert2019], and ecosystem types [@mcmeans2015; @gutgesell2022a]. 
 
