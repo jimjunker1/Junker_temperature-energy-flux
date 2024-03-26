@@ -29,6 +29,8 @@ institute:
   - veidi: Marine and Freshwater Institute, Hafnarfjördur, Iceland
   - reyk: University of Iceland, Institute of Life and Environmental Sciences, Reykjavík, Iceland
 output:
+   pdf_document:
+     keep_tex: true
    word_document:
       reference_docx: working_docx_template.docx
       toc: no
@@ -36,8 +38,6 @@ output:
       - '--lua-filter=scholarly-metadata.lua'
       - '--lua-filter=author-info-blocks.lua'
       - '--filter=pandoc-crossref.exe'
-   pdf_document:
-     keep_tex: true
    html_document: default
    pandoc_args:
       - '--lua-filter=scholarly-metadata.lua'
