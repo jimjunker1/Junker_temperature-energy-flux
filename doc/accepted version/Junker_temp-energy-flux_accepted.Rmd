@@ -75,16 +75,8 @@ Submission journal: Ecology
 
 Submission type: Article
 
-Manuscript details:
-
--   Abstract word count: 269/350
-
--   Main text word count (w/ references): 8476
-
--   Appendices: 3
-
 Open Research Statement: All data and code used in this work are
-publicly available and archived at [@junkerEnergyFlux] and Zenodo
+publicly available and archived at Junker [-@junkerEnergyFlux] and Zenodo
 <https://zenodo.org/doi/10.5281/zenodo.10455904>.
 
 Key words: climate change; energy flux; environmental filtering; food webs; species traits; temperature
@@ -981,32 +973,33 @@ points represent the median value, wide bars represent the 25^th^ and
 
 Figure 1
 
-```{r figure 1, echo=FALSE, warning=FALSE, message=FALSE, fig.width=7, fig.height=5, dpi = 450}
+```{r figure 1, echo=FALSE, warning=FALSE, message=FALSE, fig.width=7, fig.height=5, dpi = 600}
 
 drake::loadd(spp_traitsVtemp)
-
+ggsave("./doc/accepted version/Figure 1.svg", plot = spp_traitsVtemp[['fig1_plot']], width = 7, height = 5)
 grid.draw(spp_traitsVtemp[['fig1_plot']])
-
 ```
 
 \newpage
 
 Figure 2
 
-```{r figure 2, echo = FALSE, warning = FALSE, message = FALSE, fig.width=7.5, fig.height=8, dpi = 450}
+```{r figure 2, echo = FALSE, warning = FALSE, message = FALSE, fig.width=7.5, fig.height=8, dpi = 600}
 
 drake::loadd(annual_spp_flux_fig)
 drake::loadd(spp_flux_dist)
-gridExtra::grid.arrange( spp_flux_dist[["full_plot"]],annual_spp_flux_fig, ncol = 2, layout_matrix = cbind(1,1,1,1,2,2,2))
+fig2 = gridExtra::grid.arrange( spp_flux_dist[["full_plot"]],annual_spp_flux_fig, ncol = 2, layout_matrix = cbind(1,1,1,1,2,2,2))
+ggsave("./doc/accepted version/Figure 2.svg", plot = fig2, width = 7.5, height = 8)
 ```
 
 \newpage
 
 Figure 3
 
-```{r figure 3, echo =FALSE, warning=FALSE, message=FALSE, fig.width=5, fig.height=4, dpi = 450}
+```{r figure 3, echo =FALSE, warning=FALSE, message=FALSE, fig.width=5, fig.height=4, dpi = 600}
 
 drake::loadd(M_lorenz_skew_fig)
+ggsave("./doc/accepted version/Figure 3.svg", plot = M_lorenz_skew_fig, width = 5, height = 4)
 grid.draw(M_lorenz_skew_fig)
 
 ```
@@ -1015,9 +1008,10 @@ grid.draw(M_lorenz_skew_fig)
 
 Figure 4
 
-```{r figure 4, echo = FALSE, warning=FALSE, message=FALSE, fig.width=5, fig.height=4, dpi = 450}
+```{r figure 4, echo = FALSE, warning=FALSE, message=FALSE, fig.width=5, fig.height=4, dpi = 600}
 
 drake::loadd(PB_lorenz_skew_fig)
+ggsave("./doc/accepted version/Figure 4.svg", plot = PB_lorenz_skew_fig, width = 5, height = 4)
 grid.draw(PB_lorenz_skew_fig)
 
 

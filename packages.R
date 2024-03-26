@@ -11,7 +11,7 @@ here::i_am("packages.R")
                     "viridis", "broom","bbmle","ggthemes", "ggeffects", "betareg",
                     "igraph","ggraph","magick","cowplot","rriskDistributions",
                     "rstan", "brms", "tidybayes", "parallel", "hillR", "RInSp","rsample",
-                    "emmeans")
+                    "emmeans", "svglite")
   # package.list <- c('conflicted', 'dotenv', 'drake', 'abind', 'brms','cowplot',
   #                   'dplyr', 'egg', 'fnmate', 'furrr', 'ggplot2', 'ggpubr', 'grid', 'gridExtra',
   #                   'loo', 'lubridate', 'plyr', 'purrr', 'RInSp', 'rlist',
