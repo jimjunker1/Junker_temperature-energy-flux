@@ -12,12 +12,7 @@ here::i_am("packages.R")
                     "igraph","ggraph","magick","cowplot","rriskDistributions",
                     "rstan", "brms", "tidybayes", "parallel", "hillR", "RInSp","rsample",
                     "emmeans", "svglite")
-  # package.list <- c('conflicted', 'dotenv', 'drake', 'abind', 'brms','cowplot',
-  #                   'dplyr', 'egg', 'fnmate', 'furrr', 'ggplot2', 'ggpubr', 'grid', 'gridExtra',
-  #                   'loo', 'lubridate', 'plyr', 'purrr', 'RInSp', 'rlist',
-  #                   'rriskDistributions', 'rstan', 'stringr', 'tibble', 'tidyr', 'vegan',
-  #                   'viridis')
-  p_load(char = package.list, install = FALSE, character.only = TRUE)
+  p_load(char = package.list, install = TRUE, character.only = TRUE)
   remotes::install_github("jimjunker1/junkR", upgrade = "never")
   library(junkR)
   devtools::install_github("rmcelreath/rethinking", upgrade = "never")

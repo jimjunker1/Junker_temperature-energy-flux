@@ -25,7 +25,7 @@ plot_spp_flux <- function(ann_spp_flux =
     ggplot(aes(x = rank, y = log(flux_mg_m_y_mean), group = site))+
     geom_line(aes(color = site), linewidth = 2)+
     geom_point(aes(fill = site), shape = 21, size = 2.3, color = 'black') +
-    scale_y_continuous(name = expression(log[e]~"Organic matter flux (mg"~m^-2~y^-1*")"),limits = c(-10,NA),
+    scale_y_continuous(name = expression(log[e]~"Organic matter flux (mg "~m^-2~y^-1*")"),limits = c(-10,NA),
                        expand = c(0.03,0))+
     scale_x_continuous(name = 'Species rank')+
     scale_colour_manual(name = expression("Temperature ("~degree*C~")"), values = ocecolors[['temperature']][oce_temp_pos], labels = stream_temp_labels)+
@@ -37,7 +37,7 @@ plot_spp_flux <- function(ann_spp_flux =
           legend.justification = c("left", "bottom"), 
           legend.title = element_text(family = 'serif'),
           legend.spacing.y = unit(0.0003,'cm'),
-          legend.key.size = unit(0.4,'cm'));evenness_plot
+          legend.key.size = unit(0.4,'cm'))
   
   return(evenness_plot)
 

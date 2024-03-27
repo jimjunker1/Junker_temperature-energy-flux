@@ -29,8 +29,6 @@ institute:
   - veidi: Marine and Freshwater Institute, Hafnarfjördur, Iceland
   - reyk: University of Iceland, Institute of Life and Environmental Sciences, Reykjavík, Iceland
 output:
-   pdf_document:
-     keep_tex: true
    word_document:
       reference_docx: working_docx_template.docx
       toc: no
@@ -38,6 +36,8 @@ output:
       - '--lua-filter=scholarly-metadata.lua'
       - '--lua-filter=author-info-blocks.lua'
       - '--filter=pandoc-crossref.exe'
+   pdf_document:
+     keep_tex: true
    html_document: default
    pandoc_args:
       - '--lua-filter=scholarly-metadata.lua'
@@ -988,7 +988,7 @@ Figure 2
 
 drake::loadd(annual_spp_flux_fig)
 drake::loadd(spp_flux_dist)
-fig2 = gridExtra::grid.arrange( spp_flux_dist[["full_plot"]],annual_spp_flux_fig, ncol = 2, layout_matrix = cbind(1,1,1,1,2,2,2))
+fig2 = ggarrange(spp_flux_dist[['full_plot']], annual_spp_flux_fig, ncol = 2, widths = c(4/7,3/7))#gridExtra::grid.arrange( spp_flux_dist[["full_plot"]],annual_spp_flux_fig, ncol = 2, layout_matrix = cbind(1,1,1,1,2,2,2))
 ggsave("./doc/accepted version/Figure 2.svg", plot = fig2, width = 7.5, height = 8)
 ```
 
